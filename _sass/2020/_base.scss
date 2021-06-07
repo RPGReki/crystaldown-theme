@@ -269,11 +269,6 @@
             margin-right: 0;
           }
         }
-
-        &.early-access {
-          background-color: rgb(232, 91, 70);
-          border-color: rgb(232, 91, 70);
-        }
       }
     }
   }
@@ -286,16 +281,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 1rem;
-    background: var(--dark);
 
     @media (min-width: 992px) {
       margin-left: 0;
       grid-column: 1 / span 3;
       grid-row: 7;
-    }
-
-    a {
-      color: $white !important;
     }
 
     #support {
@@ -464,31 +454,6 @@ form {
   img {
     float: left;
     margin: 0 .5rem 1rem 0;
-  }
-}
-
-#support,
-.http-401 {
-  .patreon {
-    display: block;
-    flex-grow: 1;
-    min-width: 80vw;
-
-    @media (min-width: 768px) {
-      min-width: 60vw;
-    }
-
-    a {
-      padding: .5rem 1rem;
-      border-radius: 2rem;
-      background-color: rgb(232, 91, 70);
-      display: block;
-      color: $white !important;
-
-      @media (min-width: 768px) {
-        display: inline-block;
-      }
-    }
   }
 }
 

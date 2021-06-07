@@ -7,7 +7,8 @@
     {% if item.onclick %}onclick="{{ item.onclick }}"{% endif %}
     {% if item.type %}type="{{ item.type }}"{% endif %}
     {% if item.target %}target="{{ item.target }}"{% endif %}
-    {% if item.rel %}rel="{{ item.rel }}"{% endif %}>
+    {% if item.rel %}rel="{{ item.rel }}"{% endif %}
+    class="btn btn-lg">
     <span class="unicode-icon">{{ item.unicode_icon }}</span> {{ item.text }}
   </a>
 </p>{% endfor %}
