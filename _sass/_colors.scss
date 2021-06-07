@@ -210,6 +210,13 @@
   }
 }
 
+.btn-dark,
+.btn-dark:any-link {
+  background-color: var(--dark) !important;
+  border-color: var(--dark) !important;
+  color: $white !important;
+}
+
 :root {
   --red: #{$red};
   --danger: #{$red};

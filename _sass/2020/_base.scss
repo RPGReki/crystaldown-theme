@@ -19,25 +19,23 @@
   grid-template: auto;
   gap: 0 1vmin;
   grid-template-areas:
-    "navigation"
     "title"
-    "policy-banner"
-    "breadcrumbs"
+    "navigation"
     "controls"
+    "breadcrumbs"
     "content"
     "comments"
     "footer";
 
   @media (min-width: 768px) {
     grid-template: auto;
-    gap: 5vmin 5vmin;
+    gap: 1vmin 5vmin;
     grid-template-areas:
-      "policy-banner"
       "title"
-      "breadcrumbs"
       "navigation"
       "controls"
-      "content content"
+      "breadcrumbs"
+      "content"
       "comments"
       "footer";
   }
@@ -45,12 +43,6 @@
   @media (min-width: 992px) {
     font-size: 14pt;
     grid-template: auto / 1fr 1000px 1fr;
-    grid-template-areas:
-      "title title title"
-      ". breadcrumbs ."
-      ". content ."
-      ". comments . "
-      "footer footer footer";
     gap: 1rem;
   }
 
@@ -69,10 +61,6 @@
     margin: 0;
     max-width: 100vw;
     display: grid;
-
-    @media(min-width: 768px) {
-      margin: -5vmin 0 0;
-    }
 
     @media(min-width: 992px) {
       padding-left: 2rem;
@@ -102,7 +90,8 @@
     }
 
     @media (min-width: 768px) {
-      margin: 2rem 2rem 0;
+      margin: 15px 15px 0;
+      gap: 0 .5rem;
     }
 
     @media (min-width: 992px) {
@@ -195,7 +184,11 @@
     }
 
     @media (min-width: 768px) {
-      margin: 2rem 2rem 0;
+      margin: 0 15px 10px;
+
+      > div {
+        margin-top: 0 !important;
+      }
     }
 
     @media (min-width: 992px) {
@@ -216,6 +209,10 @@
     grid-area: breadcrumbs;
     font-size: 80%;
     padding: .5em 1em;
+    
+    @media (min-width: 6px) {
+      margin: .5rem 15px;
+    }
 
     @media (min-width: 992px) {
       margin-left: 0;
@@ -238,6 +235,7 @@
     @media (min-width: 992px) {
       grid-column: 2;
       grid-row: 5;
+      min-height: calc(100vh - 458px);
     }
 
     p {
@@ -277,10 +275,20 @@
     grid-area: footer;
     margin: 0 !important;
     max-width: 100vw;
-    display: flex;
+    display: block;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 1rem;
+
+    @media (min-width: 576px) {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template: "support copyright";
+    }
+
+    @media (min-width: 786px) {
+      display: flex;
+    }
 
     @media (min-width: 992px) {
       margin-left: 0;
@@ -300,17 +308,21 @@
         margin-bottom: 0;
       }
    }
-
-    #footer {
-      align-self: flex-end;
-      flex-basis: 250px;
-      flex-grow: 1;
-    }
   }
 
   >.policy-banner {
     display: none;
-    grid-area: policy-banner;
+    grid-area: controls;
+    z-index: 100;
+    //grid-column: 1;
+    //grid-row: 2;
+
+    @media (min-width: 786px) {
+      margin-left: 0;
+      margin-right: 0;
+      grid-column: 1;
+      grid-row: 3;
+    }
 
     @media (min-width: 992px) {
       margin-left: 0;
@@ -552,4 +564,12 @@ h1, .h1, h2, .h2, h3 {
 
 h3, .h3 {
   font-size: 1.5rem;
+}
+
+.collapse:not(.show) {
+  display: none !important;
+
+  @media (min-width: 992px) {
+    display: flex !important;
+  }
 }
