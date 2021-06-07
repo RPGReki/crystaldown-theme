@@ -11,7 +11,6 @@ function isHasAcceptedPolicy() {
 }
 
 async function acceptPolicy() {
-  loadBeacon();
   var banner = $('#policy-banner')[0];
   banner.style.opacity = 0;
   writeCookie("acceptedPolicy", true);
@@ -171,26 +170,6 @@ function toggleAllAccordions() {
     .forEach(e => {
       toggleAccordion(e);
     });
-}
-
-function loadBeacon() {
-  if (!isHasAcceptedPolicy()) {
-    return;
-  }
-
-  var js, fjs = d.getElementsByTagName("script")[0];
-  var html = d.getElementsByTagName("html")[0];
-  var i = "beacon";
-
-  if (d.getElementById(i)) {
-    return;
-  }
-
-  js = d.createElement("script");
-  js.id = i;
-  js.src = '/proxy/cloudflare/beacon.min.js';
-
-  fjs.parentNode.insertBefore(js, fjs);
 }
 
 restoreSettingsFromCookie();
