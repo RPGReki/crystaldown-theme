@@ -40,8 +40,10 @@
 {% for pair in site.webmaster_verifications %}
 <meta name="{{ pair.name }}" content="{{ pair.key }}">
 {% endfor %}
-{% unless page.published == "sponsors" or page.published == "pre-sponsors"%}
+{% unless page.published == "sponsors" or page.published == "pre-sponsors" or page.canonical %}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
+{% else %}
+<link rel="canonical" href="{{ page.canonical | absolute_url }}">
 {% endunless %}
 {% if page.shortlink %}
 {% assign s = page.shortlink %}
