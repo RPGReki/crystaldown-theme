@@ -7,7 +7,7 @@ layout: null
  * Bootstrap Toggle v3.6.1 
  */
 {% 
-    include_relative jquery/jquery-3.5.1.slim.min.js %}{% 
-    include_relative bootstrap/bootstrap.min.js %}{% 
-    include_relative bootstrap/bootstrap-toggle.min.js %}{%
-    include_relative base.min.js %}
+    include scripts/jquery/jquery-3.5.1.slim.min.js %}{% 
+    include scripts/bootstrap/bootstrap.min.js %}{% 
+    include scripts/bootstrap/bootstrap-toggle.min.js %}{%
+    include scripts/base.min.js %}
