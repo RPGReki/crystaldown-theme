@@ -199,6 +199,10 @@
       .d-inline-flex {
         min-width: unset;
         margin: 0;
+
+        > * {
+          margin: 0 1rem 0 0;
+        }
       }
 
 
