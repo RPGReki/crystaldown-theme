@@ -12,6 +12,12 @@
 {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endif %}
 </small>
 <div class="clearfix"></div>
-<small class="float-left">
+{% if page.tags %}
+<small>
     tagged with {% for t in page.tags %}<a href="{{ "/tags/"| prepend: site.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
 </small>
+{% endif %}
+<div class="d-inline-flex w-100 mt-2">
+    <input id="tts" aria-label="Toggle Text-to-Speech" type="checkbox" data-toggle="toggle" data-off="⏸&ensp;&nbsp;" data-on="&ensp;&nbsp;▶️"
+    data-onstyle="green" data-offstyle="red" data-size="lg" data-width="100%">
+</div>
