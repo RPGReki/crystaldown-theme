@@ -1,3 +1,4 @@
+{% unless canonical_url %}
 <p>
     Share this chapter on
 </p>
@@ -50,3 +51,4 @@
         <img src="{{ "/assets/images/mix.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Mix">
     </a>
 </div>
+{% endunless %}

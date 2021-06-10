@@ -40,13 +40,18 @@
 {% for pair in site.webmaster_verifications %}
 <meta name="{{ pair.name }}" content="{{ pair.key }}">
 {% endfor %}
-{% unless page.published == "sponsors" or page.published == "pre-sponsors" or page.canonical_url or site.canonical_domain %}
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-{% elsif page.canonical_url %}
-<link rel="canonical" href="{{ page.canonical_url | absolute_url }}">
-{% else %}
-<link rel="canonical" href="{{ page.url | prepend: site.canonical_domain | absolute_url }}">
+
+{% unless page.published == "sponsors" or page.published == "pre-sponsors" %}
+    {% if page.canonical_url %}
+        {% assign canonical_url = page.canonical_url | absolute_url %}
+    {% elsif page.canonical_domain %}
+        {% assign canonical_url = page.url | prepend: page.canonical_domain | absolute_url %}
+    {% else %}
+        {% assign canonical_url = page.url %}
+    {% endif %}
+    <link rel="canonical" href="{{ page.url | prepend: site.canonical_domain | absolute_url }}">
 {% endunless %}
+
 {% if page.shortlink %}
 {% assign s = page.shortlink %}
 {% for i in site.shorturl %}
