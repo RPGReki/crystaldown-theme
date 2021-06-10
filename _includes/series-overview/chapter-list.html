@@ -1,0 +1,6 @@
+<ul style="list-style: none">{% for page in pages %}
+    {% if page.rating == "adult" %}{% continue %}{% endif %}
+    {% if jekyll.environment != "unpublished" and page.published == "sponsors" %}{% break %}{% endif %}
+    {% if jekyll.environment != "unpublished" and page.published == "pre-sponsors" %}{% break %}{% endif %}
+      <li><span class="count w-3">{% if page.current_chapters %}{{ page.current_chapters }}{% else %}{{ page.chapter }}{% endif %}.</span> <a href="{{ page.url }}">{{ page.title }}</a></li>{% endfor %}
+</ul>

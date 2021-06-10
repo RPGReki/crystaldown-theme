@@ -91,10 +91,10 @@ for hay in include.data
     {% assign char = char | append: '-latest' %}
     {% endif %}
     <blockquote class="interface" style="order: 10"><p class="inactive" onclick="toggleAccordion(this)">Profile</p>
-      {% include character-info character=char %}
+      {% include character/info.html character=char %}
     </blockquote>
     {% if page.termbase == "/crystaldown" %}
-    {% capture window %}{% include character-window character=char titles_only=hay.character_titles_only %}{% endcapture %}
+    {% capture window %}{% include character/window.md character=char titles_only=hay.character_titles_only %}{% endcapture %}
     {{ window | markdownify }}
     {% endif %}
   {% endif %}
@@ -112,7 +112,7 @@ for hay in include.data
 %}{%
    endunless
 %}
-  {% include glossary-v3 data=stack top=false id=id %}
+  {% include glossary.html data=stack top=false id=id %}
 </blockquote>
 {%
 endfor
