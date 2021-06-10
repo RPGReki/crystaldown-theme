@@ -1,26 +1,35 @@
-<h1 aria-label="Chapter {% if page.book %}{{ page.book.number }}-{% endif %}{{ page.chapter }}: {{ page.title }}"
-    aria-flowto="chapter-content">
+<h1 aria-hidden>
     {{ page.title }}
 </h1>
-<small class="float-left">
-    {% assign published = page.date | date: '%s' %}
-    {% assign modified = page.last_modified_at | date: '%s' %}
-    published on {{ page.date | date: "%Y-%m-%d" }}{% unless modified < published %}, last updated on {% last_modified_at %Y-%m-%d %}{% endunless %}
-</small>
-<small class="float-right">
-{% if page.author %}
-{% assign author = site.data.staff | where: "id", page.author | last %}
-    written by {% if author.url %}<a href="{{ author.url }}" target="_blank" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, checked with
-    {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endif %}{% if page.editor %}, edited by 
-    {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% if page.sponsors %}, sponsored by
-    {{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}
-</small>
-<div class="clearfix"></div>
-{% unless page.sponsors %}
-<small>
-As always, a big thanks to all Patrons for their support.
-</small>
-{% endunless %}
+<div 
+    class="d-none"
+    id="talkify-title"
+    aria-flowto="talkify-metadata">
+    <p>{{ site.title }}<p>
+    <p>{{ page.book.series }} {{ page.book.number }}, {{ page.book.title }}, Chapter {{ page.chapter }}: {{ page.title }}<p>
+</div>
+
+<div id="talkify-metadata" aria-flowto="chapter-content">
+    <small class="float-left">
+        {% assign published = page.date | date: '%s' %}
+        {% assign modified = page.last_modified_at | date: '%s' %}
+        published on {{ page.date | date: "%Y-%m-%d" }}{% unless modified < published %}, last updated on {% last_modified_at %Y-%m-%d %}{% endunless %}
+    </small>
+    <small class="float-right">
+        {% if page.author %}
+        {% assign author = site.data.staff | where: "id", page.author | last %}
+        written by {% if author.url %}<a href="{{ author.url }}" target="_blank" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, checked with
+        {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endif %}{% if page.editor %}, edited by 
+        {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% if page.sponsors %}, sponsored by
+        {{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}
+    </small>
+    <div class="clearfix"></div>
+    {% unless page.sponsors %}
+    <small >
+        As always, a big thanks to all Patrons for their support.
+    </small>
+    {% endunless %}
+</div>
 <div class="d-inline-flex w-100 mt-2">
     <input id="tts" aria-label="Toggle Text-to-Speech" type="checkbox" data-toggle="toggle" data-off="⏸&ensp;&nbsp;" data-on="&ensp;&nbsp;▶️"
     data-onstyle="green" data-offstyle="red" data-size="lg" data-width="100%">

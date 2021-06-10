@@ -8,7 +8,7 @@ if include.number
   endif
 %}{%
 else
-%}<sub alias="{{ include.text | join: ' '}}"><ruby class="text-nowrap">{%
+%}<ruby class="text-nowrap">{%
   if include.base.first
 %}{% 
     for b in include.base
@@ -18,6 +18,6 @@ else
   else
 %}<rb>{{ include.base }}</rb><rp> (</rp><rt>{{ include.text }}</rt><rp>)</rp>{%
   endif
-%}</ruby></sub>{%
+%}</ruby>{%
 endif
 %}
