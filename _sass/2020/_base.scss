@@ -42,7 +42,7 @@
 
   @media (min-width: 992px) {
     font-size: 14pt;
-    grid-template: auto / 1fr 1000px 1fr;
+    grid-template: auto / 1fr calc(992px - 3rem) 1fr;
     gap: 1rem;
   }
 
@@ -69,6 +69,7 @@
 
       grid-column: 1 / span 3;
       grid-row: 1;
+      position: static;
     }
 
     p {
@@ -143,6 +144,13 @@
           font-size: 1.25rem;
         }
       }
+
+      @media (min-width: 992px) {
+        &,
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
@@ -151,6 +159,11 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    position: sticky;
+    top: 0;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    z-index: 80;
 
     .toggle {
       max-height: 3em;
@@ -195,6 +208,7 @@
       grid-column: 2;
       grid-row: 3;
       margin: 0;
+      
 
       .d-inline-flex {
         min-width: unset;
@@ -204,11 +218,38 @@
           margin: 0 1rem 0 0;
         }
       }
+    }
 
+    @media (min-width: 1200px) and (min-height: 800px) {
+      grid-column: 3;
+      grid-row: 4 / 5;
+      > div {
+        position: fixed;
+        transform-origin: 0% 100%;
+        transform: rotate(-90deg) scale(-1) translateX(-64px);
+        width: 300px;
+      }
 
+      label,
+      span {
+        transform: rotate(-90deg);
+        display: inline-block;
+      }
+
+      label + span {
+        transform: unset;
+      }
+      
+      .btn-green {
+        transform-origin: 45% 50%;
+      }
+      
+      .btn-red {
+        transform-origin: 55% 50%;
+      }
     }
   }
-
+    
   > .breadcrumb {
     grid-area: breadcrumbs;
     font-size: 80%;
@@ -223,6 +264,10 @@
       margin-right: 0;
       grid-column: 2;
       grid-row: 4;
+    }
+    
+    @media (min-width: 1200px) and (min-height: 800px) {
+      margin-top: -.5rem;
     }
   }
 
@@ -243,7 +288,11 @@
     }
 
     p {
-      text-align: left;
+      text-align: left
+      
+      &:last-child {
+        margin-block-end: 0;
+      }
     }
 
     header nav,
@@ -319,8 +368,8 @@
     display: none;
     grid-area: controls;
     z-index: 100;
-    //grid-column: 1;
-    //grid-row: 2;
+    position: sticky;
+    top: 0;
 
     @media (min-width: 786px) {
       margin-left: 0;
@@ -577,4 +626,8 @@ h3, .h3 {
   @media (min-width: 992px) {
     display: flex !important;
   }
+}
+
+.policy-banner[style*=display] + .controls {
+  display: none!important;
 }

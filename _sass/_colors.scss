@@ -28,6 +28,10 @@
   color: rgb(77, 77, 77);
   background-color: $white;
 
+  .controls {
+    background-color: $white;
+  }
+
   a,
   a:any-link {
     color: $light-blue;
@@ -67,6 +71,10 @@
 .dark-theme {
   color: $white;
   background-color: $black;
+ 
+  .controls {
+    background-color: $black;
+  }
   
   a,
   a:any-link {
