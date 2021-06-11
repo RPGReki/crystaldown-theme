@@ -46,12 +46,13 @@
 {% unless page.published == "sponsors" or page.published == "pre-sponsors" %}
     {% if page.canonical_url %}
         {% assign canonical_url = page.canonical_url | absolute_url %}
+        <link rel="canonical" href="{{ canoncial_url | prepend: site.canonical_domain | absolute_url }}">
     {% elsif page.canonical_domain %}
         {% assign canonical_url = page.url | prepend: page.canonical_domain | absolute_url %}
+        <link rel="canonical" href="{{ canonical_url | absolute_url }}">
     {% else %}
-        {% assign canonical_url = page.url %}
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
     {% endif %}
-    <link rel="canonical" href="{{ page.url | prepend: site.canonical_domain | absolute_url }}">
 {% endunless %}
 
 {% if page.shortlink %}
