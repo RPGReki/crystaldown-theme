@@ -14,6 +14,8 @@
 
 {% if page.robots %}
 <meta name="robots" content="{{ page.robots }}">
+{% elsif page.published == "sponsors" or page.published == "pre-sponsors" or page.published == "private" %}
+<meta name="robots" content="noindex, nofollow">
 {% endif %}
 {% if page.rating %}
 <meta name="rating" content="{{ page.rating }}">
