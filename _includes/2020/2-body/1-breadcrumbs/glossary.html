@@ -6,26 +6,26 @@
         "@type": "ListItem",
         "position": 0,
         "name": "{{ site.title }}",
-        "item": "{{ "/" | absolute_url }}"
+        "item": "{{ "/" | prepend: site.breadcrumb_domain | absolute_url }}"
     }, {
         "@type": "ListItem",
         "position": 1,
         "name": "{{ page.book.series }}",
-        "item": "{{ page.book.url | absolute_url }}"
+        "item": "{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}"
     }, {
         "@type": "ListItem",
         "position": 2,
         "name": "{{ page.title }}",
-        "item": "{{ page.url | absolute_url }}"
+        "item": "{{ page.url | prepend: site.breadcrumb_domain | absolute_url }}"
     }]
 }
 </script>
 
 <li class="breadcrumb-item">
-    <a title="{{ site.title }}" href="{{ "/" | absolute_url }}">{{ site.title }}</a>
+    <a title="{{ site.title }}" href="{{ "/" | prepend: site.breadcrumb_domain | absolute_url }}">{{ site.title }}</a>
 </li>
 <li class="breadcrumb-item">
-    <a title="{{ page.book.series }}" href="{{ page.book.url | absolute_url }}">{{ page.book.series }}</a>
+    <a title="{{ page.book.series }}" href="{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}">{{ page.book.series }}</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">
     {{ page.title }}
