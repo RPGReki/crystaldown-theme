@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#007bff">
+<meta name="theme-color" content="#9c2c2c">
 {% assign title = page.title %}
 {% if page.book %}
 {% assign title = title | append: " | " | append: page.book.series %}
@@ -27,6 +27,9 @@
 <link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}">
 {% endfor %}
 <!-- CSS & JS -->
+<style>
+.dark-theme{color:#fff;background-color:#212121;}.light-theme{color: #4d4d4d;background-color:#fff;}
+</style>
 {% capture css %}/assets/2020/css/default{% if page.additional_css %}+{{ page.additional_css | join: '+'}}{% endif %}.css{% endcapture %}
 {% assign css_page = site.pages | where: 'url', css | last %}
 <link rel="stylesheet" type="text/css" href="{{ css | prepend: site.static_url | absolute_url }}?{{ css_page.content | sha256_64 | slice: 0, 5 }}">
