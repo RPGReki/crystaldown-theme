@@ -1,13 +1,6 @@
-<h1 aria-hidden>
+<h1 aria-label="Chapter {{ page.chapter }}: {{ page.title }}">
     {{ page.title }}
 </h1>
-<div 
-    class="d-none"
-    id="talkify-title"
-    aria-flowto="talkify-metadata">
-    <p>{{ site.title }}<p>
-    <p>{{ page.book.series }} {{ page.book.number }}, {{ page.book.title }}, Chapter {{ page.chapter }}: {{ page.title }}<p>
-</div>
 
 <div id="talkify-metadata" aria-flowto="chapter-content">
     <small class="float-left">
