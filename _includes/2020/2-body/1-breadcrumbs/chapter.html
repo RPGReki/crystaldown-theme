@@ -33,7 +33,7 @@
   <a class="series-title" title="{{ page.book.series }}" href="{{ page.book.url | split: '#' | first | prepend: site.breadcrumb_domain | absolute_url }}">{{ page.book.series }}</a>
 </li>
 <li class="breadcrumb-item">
-  <a class="volume-title" title="{{ page.book.series }} Volume {{ page.book.number }}: {{ page.book.title }}" href="{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}">{{ page.book.title }}</a>
+  <a class="volume-title" aria-label="{{ page.book.series }} {{ page.book.number }}: {{ page.book.title }}" title="{{ page.book.series }} {{ page.book.number }}: {{ page.book.title }}" href="{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}">{{ page.book.title }}</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">
   <span class="chapter-title">{{ page.title }}</span>
