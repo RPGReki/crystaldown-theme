@@ -222,13 +222,15 @@
 
     @media (min-width: 1200px) and (min-height: 800px) {
       grid-column: 3;
-      grid-row: 4 / 5;
+      grid-row: 5 / 5;
       max-width: calc((100vh - 992px - 5rem) / 2);
       
       > div {
         transform-origin: 0% 100%;
-        transform: rotate(-90deg) scale(-1) translateX(56px);
+        transform: rotate(-90deg) scale(-1) translateX(42px);
         min-width: 480px !important;
+        position: sticky;
+        top: 0;
       }
 
       label,
