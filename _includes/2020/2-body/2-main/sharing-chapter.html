@@ -1,52 +1,54 @@
 {% unless canonical_url %}
+{% capture share_title %}{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}{% endcapture %}
+{% capture share_text %}Check out {{ share_title }} on {{ site.title }}!{% endcapture %}
 <p>
     Share this chapter on
 </p>
 <div class="icons">
     <a title="Share Chapter on Facebook"
-        href="https://www.facebook.com/sharer.php?src=bm&u={{ page.url | absolute_url }}&t={{ site.title | url_encode }}%20Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ page.title | url_encode }}"
+        href="https://www.facebook.com/sharer.php?src=bm&u={{ s }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/facebook.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Facebook">
     </a>
     <a title="Share Chapter on Twitter"
-        href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ site.title | url_encode }}%20Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ site.title | url_encode }}%20{{ page.title | url_encode }}&via={{ site.twitter.username }}&hashtags=Fantasy,WebFiction,WebNovel,WebSerial"
+        href="https://twitter.com/intent/tweet?url={{ s }}%0A%0A&text={{ share_text }}%0A%0A&via={{ site.twitter.username }}&hashtags=Fantasy,WebFiction,WebNovel,WebSerial"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/twitter.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Twitter">
     </a>
     <a title="Share Chapter on reddit"
-        href="https://reddit.com/submit?url={{ page.url | absolute_url }}&title={{ site.title | url_encode }}%20Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ page.title | url_encode }}"
+        href="https://reddit.com/submit?url={{ s }}&title={{ share_text | url_encode }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/reddit.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on reddit">
     </a>
     <a title="Share Chapter on Pinterest"
-        href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&description={{ site.title | url_encode }}%20Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ page.title | url_encode }}&media={{ "/assets/images/site-card.png" | absolute_url }}"
+        href="https://pinterest.com/pin/create/button/?url={{ s }}&description={{ share_title | url_encode }}&media={{ "/assets/images/site-card.png" | absolute_url }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/pinterest.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Pinterest">
     </a>
     <a title="Share Chapter on Telegram"
-        href="https://telegram.me/share/url?url={{ page.url | absolute_url }}&text={{ site.title | url_encode }}%20Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ page.title | url_encode }}"
+        href="https://telegram.me/share/url?url={{ s }}&text={{ share_text | url_encode }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/telegram.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Telegram">
     </a>
     <a title="Share Chapter on WhatsApp"
-        href="https://api.whatsapp.com/send?text=Checkout%20{{ site.title | url_encode }}%20Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ page.title | url_encode }}.%20{{ page.url | absolute_url }}"
+        href="https://api.whatsapp.com/send?text={{ share_text | url_encode }}%0A%0A{{ s }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/whatsapp.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on WhatsApp">
     </a>
     <a title="Share Chapter on Tumblr"
-        href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ page.url | absolute_url }}&title=Chapter%20{{ page.book.number }}-{{ page.chapter }}%3A%20{{ page.title | url_encode }}&tags={{ site.title | replace: " ", "" }},WebFiction,WebNovel,WebSerial,Fantasy"
+        href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ s }}&title={{ share_title }}=&tags={{ page.book.series | camelcase }},WebFiction,WebNovel,WebSerial,Fantasy"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/tumblr.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Tumblr">
     </a>
-    <a title="Share Chapter on VK" href="https://vk.com/share.php?url={{ page.url | absolute_url }}" target="_blank"
+    <a title="Share Chapter on VK" href="https://vk.com/share.php?url={{ s }}" target="_blank"
         rel="noopener nofollow">
         <img src="{{ "/assets/images/vk.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on VK">
     </a>
-    <a title="Share Chapter on Pocket" href="https://getpocket.com/edit?url={{ page.url | absolute_url }}"
+    <a title="Share Chapter on Pocket" href="https://getpocket.com/edit?url={{ s }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/pocket.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Pocket">
     </a>
-    <a title="Share Chapter on Mix" href="https://mix.com/mixit?su=submit&url={{ page.url | absolute_url }}"
+    <a title="Share Chapter on Mix" href="https://mix.com/mixit?su=submit&url={{ s }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/mix.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Mix">
     </a>
