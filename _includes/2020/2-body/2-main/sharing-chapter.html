@@ -1,6 +1,7 @@
 {% unless canonical_url %}
 {% capture share_title %}{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}{% endcapture %}
 {% capture share_text %}Check out {{ share_title }} on {{ site.title }}!{% endcapture %}
+{% capture tumblr_caption %}{{ share_text }} <br>via <a href="https://{{ site.tumblr.url }}">{{ site.tumblr.url }}</a>{% endcapture %}
 <p>
     Share this chapter on
 </p>
@@ -36,7 +37,7 @@
         <img src="{{ "/assets/images/whatsapp.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on WhatsApp">
     </a>
     <a title="Share Chapter on Tumblr"
-        href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ s }}&title={{ share_title }}&tags={{ page.book.series | camelcase }},WebFiction,WebNovel,WebSerial,Fantasy"
+        href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ s }}&title={{ share_title }}&tags={{ page.book.series | camelcase }},WebFiction,WebNovel,WebSerial,Fantasy&caption={{ tumblr_caption | url_encode }}"
         target="_blank" rel="noopener nofollow">
         <img src="{{ "/assets/images/tumblr.png"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Tumblr">
     </a>

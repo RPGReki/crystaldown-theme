@@ -1,4 +1,4 @@
-<h1 aria-label="Chapter {{ page.chapter }}: {{ page.title }}">
+<h1 aria-label="Chapter {{ page.chapter }}: {{ page.title }}{% if page.title_postfix %}, {{ page.title_postfix }}{% endif %}">
     {{ page.title }}
 </h1>
 
