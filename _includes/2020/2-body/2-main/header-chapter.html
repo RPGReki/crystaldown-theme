@@ -16,12 +16,13 @@
         {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% if page.sponsors %}, sponsored by
         {{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}
     </small>
+    <div aria-hidden="true" class="clearfix"></div>
     {% unless page.sponsors %}
-    <small class="float-left">
+    <small class="float-left" style="margin: 4px 0 2px">
         As always, a big thanks to all Patrons for their support.
     </small>
     {% endunless %}
-    <div class="clearfix"></div>
+    <div aria-hidden="true" class="clearfix"></div>
 </div>
 <div class="d-inline-flex w-100 my-2 align-items-center">
     <p class="w-25 mb-0">Text to Speech:</p>

@@ -220,7 +220,7 @@
       }
     }
 
-    @media (min-width: 1200px) and (min-height: 800px) {
+    @media (min-width: 1200px) and (min-height: 840px) {
       position: static;
       grid-column: 3;
       grid-row: 5 / 5;
@@ -228,7 +228,7 @@
       
       > div {
         position: sticky;
-        top: 0;
+        top: -4.5em;
         min-width: 480px !important;
         transform-origin: 0% 100%;
         transform: rotate(-90deg) scale(-1) translateX(46px);
