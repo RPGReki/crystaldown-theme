@@ -62,7 +62,7 @@ layout: compress
       {% assign words = content | markdownify | strip_html | split: " " | size %}
       <nav class="d-flex w-100 clearfix">
         {% include 2020/2-body/2-main/navigation-post.html %}
-      <nav>
+      </nav>
     </header>
     {% if page.audio %}
     <audio controls class="w-100" aria-describedby="post-content">
