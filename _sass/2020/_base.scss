@@ -160,7 +160,7 @@
     flex-wrap: wrap;
     align-content: flex-start;
     position: sticky;
-    top: 0;
+    top: -.5rem;
     padding-top: .5rem;
     padding-bottom: .5rem;
     z-index: 80;
@@ -191,13 +191,11 @@
       }
     }
 
-    @media (min-width: 576px) {
-      margin-left: calc(5vmin - .5rem);
-      margin-right: calc(5vmin - .5rem);
-    }
-
     @media (min-width: 768px) {
-      margin: 0 15px 10px;
+      margin: .5rem 0 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      top: 0;
 
       > div {
         margin-top: 0 !important;
@@ -228,10 +226,10 @@
       
       > div {
         position: sticky;
-        top: -4.5em;
+        top: -14px;
         min-width: 480px !important;
         transform-origin: 0% 100%;
-        transform: rotate(-90deg) scale(-1) translateX(46px);
+        transform: rotate(-90deg) scale(-1) translateX(-18px);
       }
 
       label,
@@ -259,13 +257,11 @@
     font-size: 80%;
     padding: .5em 1em;
     
-    @media (min-width: 6px) {
+    @media (min-width: 786px) {
       margin: .5rem 15px;
     }
 
     @media (min-width: 992px) {
-      margin-left: 0;
-      margin-right: 0;
       grid-column: 2;
       grid-row: 4;
     }
@@ -281,8 +277,8 @@
     flex-direction: column;
 
     @media (min-width: 786px) {
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: 15px;
+      margin-right: 15px;
     }
 
     @media (min-width: 992px) {
@@ -292,7 +288,7 @@
     }
 
     p {
-      text-align: left
+      text-align: left;
       
       &:last-child {
         margin-block-end: 0;
@@ -635,4 +631,32 @@ h3, .h3 {
 
 .policy-banner[style*=display] + .controls {
   display: none!important;
+}
+
+.tts-controls {
+  position: sticky;
+  top: 4rem;
+  z-index: 90;
+  padding-bottom: .5rem;
+    
+  @media (min-width: 786px) {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: calc(100vw - 18px);
+  }
+
+  @media (min-width: 992px) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: unset;    
+  }
+
+  @media (min-width: 1200px) and (min-height: 800px) {
+    top: 0;
+    padding-top: 1rem;
+  }
 }
