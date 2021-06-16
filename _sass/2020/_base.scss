@@ -431,9 +431,20 @@
     }
 
     img {
-      border-radius: 7px;
       width: 100%;
       height: auto;
+    }
+  }
+
+  img {
+    border-radius: 7px;
+  }
+
+  > img {
+    margin: 0 0 0 .5rem;
+
+    &:first-child {
+      margin-left: 0;
     }
   }
 }
@@ -523,16 +534,6 @@ form {
   img {
     float: left;
     margin: 0 .5rem 1rem 0;
-  }
-}
-
-.icons {
-  .discord {
-    border-bottom-right-radius: 0;
-  }
-
-  .patreon {
-    border-radius: 0;
   }
 }
 
