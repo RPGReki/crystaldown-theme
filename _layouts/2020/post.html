@@ -71,6 +71,12 @@ layout: compress
       <link rel="alternate" href="{{ page.url | regex_replace: '/$', '.mp4' | prepend: '/' | absolute_url }}" type="audio/mp4">
       <source src="{{ page.url | regex_relace: '/$', '.mp4' | prepend: '/' | absolute_url }}" type="audio/mp4">
     </audio>
+    {% else %}
+    <div class="d-inline-flex w-100 my-2 align-items-center tts-controls">
+      <p class="w-50 w-md-25 mb-0">Text to Speech:</p>
+      <input id="tts" aria-label="Toggle Text-to-Speech" type="checkbox" data-toggle="toggle" data-off="⏸&#xFE0E;&ensp;&nbsp;" data-on="&ensp;&nbsp;▶️&#xFE0E;"
+      data-onstyle="green" data-offstyle="red" data-size="lg" data-width="100%">
+    </div>
     {% endif %}
     {% if jekyll.environment != "unpublished" %}
     <section class="hyphenate" property="text" aria-flowto="navigation" id="post-content">

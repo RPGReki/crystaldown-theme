@@ -2,8 +2,8 @@
     {{ page.title }}
 </h1>
 
-<div id="talkify-metadata" aria-flowto="chapter-content">
-    <small class="float-left">
+<div id="talkify-metadata" class="clearfix" aria-flowto="chapter-content">
+    <small class="float-left mr-1">
         {% assign published = page.date | date: '%s' %}
         {% assign modified = page.last_modified_at | date: '%s' %}
         published on {{ page.date | date: "%Y-%m-%d" }}{% unless modified < published %}, last updated on {% last_modified_at %Y-%m-%d %}{% endunless %}
@@ -18,10 +18,9 @@
     </small>
     <div aria-hidden="true" class="clearfix"></div>
     {% unless page.sponsors %}
-    <small class="float-left" style="margin: 4px 0 2px">
+    <small style="margin: 4px 0 2px">
         As always, a big thanks to all Patrons for their support.
     </small>
     {% endunless %}
-    <div aria-hidden="true" class="clearfix"></div>
 </div>
 
