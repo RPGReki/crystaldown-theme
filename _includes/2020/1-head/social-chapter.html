@@ -26,6 +26,10 @@
 
 <!-- Facebook -->
 <meta property="og:type" content="article">
+{% if site.facebook %}
+<meta property="fb:app_id" content="{{ site.facebook.app_id }}">
+{% endif %}
+
 {% assign published = page.date | date: '%s' %}
 {% assign modified = page.last_modified_at | date: '%s' %}
 <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">

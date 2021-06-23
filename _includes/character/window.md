@@ -14,7 +14,7 @@
 > |:--------|:-------------------------------------|
 > | Name:   | {{ character.name }}                 |
 > | Age:    | {{ character.age }}                  |
-> | Race:   | {{ character.race | join: ' ' }}     |
+> | Species: | {{ character.species | join: '/' }} |
 >
 > {:.interface}
 > > Titles & Blessings
