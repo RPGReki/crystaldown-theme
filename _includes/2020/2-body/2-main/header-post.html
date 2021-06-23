@@ -2,9 +2,11 @@
     {{ page.title }}
 </h1>
 <div id="talkify-metadata" aria-flowto="chapter-content">
-<small class="float-left mr-1">
-    published on {{ page.date | date: "%Y-%m-%d" }}, last updated on {% last_modified_at %Y-%m-%d %}
-</small>
+    <small class="float-left mr-1">
+        {% assign published = page.date | date: '%s' %}
+        {% assign modified = page.last_modified_at | date: '%s' %}
+        published on {{ page.date | date: "%Y-%m-%d" }}{% unless modified < published %}, last updated on {% last_modified_at %Y-%m-%d %}{% endunless %}
+    </small>
 <small class="float-left float-lg-right text-left text-lg-right">
 {% if page.author %}
 {% assign author = site.data.staff | where: "id", page.author | last %}
