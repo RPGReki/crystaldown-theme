@@ -11,7 +11,9 @@
 {% endcapture %}
 {% assign description_social_words = description | truncate: 200 | split: " " | size %}
 {% assign description_google_words = description | truncate: 160 | split: " " | size | minus: page.seo_meta_fix %}
-<meta property="og:description" name="twitter:description"
+<meta property="og:description"
+    content="{{ description | truncatewords: description_social_words, "…" }}">
+<meta name="twitter:description"
     content="{{ description | truncatewords: description_social_words, "…" }}">
 <meta name="description" content="{{ description | truncatewords: description_google_words, "…" }}">
 

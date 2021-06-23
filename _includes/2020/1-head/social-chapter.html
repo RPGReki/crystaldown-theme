@@ -1,7 +1,7 @@
 <!-- Social Networks Common -->
-<meta property="og:title" name="twitter:title"
-    content="{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}">
+<meta property="og:title" content="{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}">
 <meta proprety="og:site_name" content="{{ site.title }}">
+<meta name="twitter:title" content="{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}">
 
 <meta property="og:image" content="{{ page.image | absolute_url }}">
 <meta name="twitter:image" content="{{ page.image | replace: '-og.', '-card.' | absolute_url }}">
@@ -11,8 +11,8 @@
 {% endcapture %}
 {% assign description_social_words = description | truncate: 200 | split: " " | size %}
 {% assign description_google_words = description | truncate: 160 | split: " " | size | minus: page.seo_meta_fix %}
-<meta property="og:description" name="twitter:description"
-    content="{{ description | truncatewords: description_social_words, "…" }}">
+<meta property="og:description" content="{{ description | truncatewords: description_social_words, "…" }}">
+<meta name="twitter:description" content="{{ description | truncatewords: description_social_words, "…" }}">
 <meta name="description" content="{{ description | truncatewords: description_google_words, "…" }}">
 
 <!-- Twitter -->
