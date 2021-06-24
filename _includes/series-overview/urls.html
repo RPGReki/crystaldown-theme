@@ -4,19 +4,19 @@
   <a rel="alternate" type="application/atom+xml"
    href="{{ page.feed | absolute_url }}"
    title="{{ page.book.series }} Chapters Atom Feed">
-    <img src="{{ '/assets/images/feed.png' | prepend: site.static_url | absolute_url }}" alt="Atom Feed">
+    <img src="{{ '/assets/images/feed.webp' | prepend: site.static_url | absolute_url }}" alt="Atom Feed">
   </a>
   {% endunless%}{% endif %}
   {% if page.scribblehub %}
   <a href="{{ page.scribblehub }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
-    <img src="{{ '/assets/images/scribblehub.png' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub">
+    <img src="{{ '/assets/images/scribblehub.webp' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub">
   </a>
   {% endif %}
   {% if page.wattpad %}
   <a href="{{ page.wattpad }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Wattpad">
-    <img src="{{ '/assets/images/wattpad.png' | prepend: site.static_url | absolute_url }}" alt="Wattpad">
+    <img src="{{ '/assets/images/wattpad.webp' | prepend: site.static_url | absolute_url }}" alt="Wattpad">
   </a>
   {% endif %}
 </p>
