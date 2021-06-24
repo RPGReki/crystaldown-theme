@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="{{ "/favicon.ico" | absolute_url }}">
 <link rel="apple-touch-icon" href="{{ "/assets/images/site-icon.png" | prepend: site.static_url | absolute_url }}">
 {% for font in site.preload.fonts %}
-<link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}">
+<link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}" type="font/woff2" crossorigin>
 {% endfor %}
 <!-- CSS & JS -->
 <style>
