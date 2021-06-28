@@ -74,8 +74,8 @@ layout: compress
         <source src="{{ page.path | replace: '.md', '.mp3' | prepend: '/' | prepend: site.static_url | absolute_url }}" type="audio/mpeg">
       </audio>
     {% endif %}
-      <div class="col-6 col-md-auto mx-md-2">Text to Speech:</div>
-      <div class="col-6 col-md-2">
+      <div class="col-4 col-md-auto mx-md-2">Text to Speech:</div>
+      <div class="col-8 col-md{% unless page.audio %}-2{% endunless %} mt-2 mt-md-0">
       <input id="tts" aria-label="Toggle Text-to-Speech" type="checkbox" data-toggle="toggle" data-off="⏸&#xFE0E;&ensp;&nbsp;" data-on="&ensp;&nbsp;▶️&#xFE0E;"
       data-onstyle="green" data-offstyle="red" data-size="lg" data-width="100%">
       </div>
