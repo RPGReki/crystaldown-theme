@@ -599,6 +599,13 @@ h1, .h1, h2, .h2, h3 {
   }
 }
 
+.entry-summary form .btn {
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
 h3, .h3 {
   font-size: 1.5rem;
 }
