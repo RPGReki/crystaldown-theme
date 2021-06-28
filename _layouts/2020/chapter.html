@@ -75,7 +75,7 @@ layout: compress
       </audio>
     {% endif %}
       <div class="col-4 col-md-auto mx-md-2">Text to Speech:</div>
-      <div class="col-8 col-md{% unless page.audio %}-2{% endunless %} mt-2 mt-md-0">
+      <div class="col-8 col-md{% if page.audio %}-2{% endif %} mt-2 mt-md-0">
       <input id="tts" aria-label="Toggle Text-to-Speech" type="checkbox" data-toggle="toggle" data-off="⏸&#xFE0E;&ensp;&nbsp;" data-on="&ensp;&nbsp;▶️&#xFE0E;"
       data-onstyle="green" data-offstyle="red" data-size="lg" data-width="100%">
       </div>
