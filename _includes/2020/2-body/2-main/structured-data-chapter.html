@@ -4,7 +4,7 @@
     "@context": {
     "rdfa": "https://www.w3.org/ns/rdfa#",
     "schema": "https://schema.org/",
-    "cd": "https://cd-schema.tk/"
+    "cs": "https://cs.0xreki.de/"
     },
     "@graph": [
     {% if page.author %}{% 
@@ -58,13 +58,13 @@
     {
         "@id": "{% if db_character.url %}{{ db_character.url }}{% else %}_:{{ character_string}}{% endif %}",
         "@type": "schema:Person",
-        "additionalType": "cd:Person",
+        "additionalType": "cs:Person",
         "schema:name": "{{ db_character.name }}",
         "schema:gender": {
             "@type": "{{ db_character.gender | absolute_url }}",
             "@value": "{{ db_character.gender | split: "/" | last }}"
         },
-        "cd:species": {{ db_character.species | jsonify }}
+        "cs:species": {{ db_character.species | jsonify }}
         {% if db_character.url %},
         "schema:url": "{{ db_character.url }}"{% endif %}
     },{% endfor %}

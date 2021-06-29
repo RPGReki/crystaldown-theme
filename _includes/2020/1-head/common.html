@@ -21,8 +21,8 @@
 <meta name="rating" content="{{ page.rating }}">
 {% endif %}
 
-<link rel="shortcut icon" href="{{ "/favicon.ico" | absolute_url }}">
-<link rel="apple-touch-icon" href="{{ "/assets/images/site-icon.png" | prepend: site.static_url | absolute_url }}">
+<link rel="shortcut icon" href="{{ '/favicon.ico' | absolute_url }}?{{ site.time | date: '%Y%m%d' }}">
+<link rel="apple-touch-icon" href="{{ '/assets/images/site-icon.png' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}">
 {% for font in site.preload.fonts %}
 <link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}" type="font/woff2" crossorigin>
 {% endfor %}
