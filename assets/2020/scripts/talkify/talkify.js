@@ -1158,7 +1158,7 @@ talkify.controlcenters.modern = function (parent, correlationId) {
         <li class="talkify-attached">\
             <div class="talkify-voice-selector ">\
                 <label for="voice-selector-toggle">\
-                <img class="talkify-selected-voice-flag talkify-flag talkify-hidden" src="">\
+                <img loading="lazy"class="talkify-selected-voice-flag talkify-flag talkify-hidden" src="">\
                 <span></span>\
                 </label><input type="checkbox" id="voice-selector-toggle" style="display: none;" />\
             </div>\
