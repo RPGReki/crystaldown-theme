@@ -4,19 +4,19 @@
   <a rel="alternate" type="application/atom+xml"
    href="{{ page.feed | absolute_url }}"
    title="{{ page.book.series }} Chapters Atom Feed">
-    <img loading="lazy" src="{{ '/assets/images/feed.webp' | prepend: site.static_url | absolute_url }}" alt="Atom Feed">
+    <img loading="lazy" src="{{ '/assets/images/feed.webp' | prepend: site.static_url | absolute_url }}" alt="Atom Feed" width="64" height="64">
   </a>
   {% endunless%}{% endif %}
   {% if page.scribblehub %}
   <a href="{{ page.scribblehub }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
-    <img loading="lazy" src="{{ '/assets/images/scribblehub.webp' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub">
+    <img loading="lazy" src="{{ '/assets/images/scribblehub.webp' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
   </a>
   {% endif %}
   {% if page.wattpad %}
   <a href="{{ page.wattpad }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Wattpad">
-    <img loading="lazy" src="{{ '/assets/images/wattpad.webp' | prepend: site.static_url | absolute_url }}" alt="Wattpad">
+    <img loading="lazy" src="{{ '/assets/images/wattpad.webp' | prepend: site.static_url | absolute_url }}" alt="Wattpad" width="86" height="64">
   </a>
   {% endif %}
 </p>
