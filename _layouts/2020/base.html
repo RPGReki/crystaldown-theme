@@ -10,15 +10,15 @@ layout: compress
 {% include 2020/1-head/noscript.html %}
 <body id="body" class="dark-theme">
 {% include 2020/2-body/common.html %}
-  <header class="no-print" aria-flowto="content" id="mobile-top">
+  <header aria-flowto="content" id="mobile-top">
     {% include 2020/2-body/header.html %}
   </header>
 
-  <ol class="breadcrumb no-print" aria-label="breadcrumb">
+  <ol class="breadcrumb" aria-label="breadcrumb">
     {% include 2020/2-body/1-breadcrumbs/base.html %}
   </ol>
   
-  <nav class="collapse no-print" id="navbar-toggable">
+  <nav class="collapse" id="navbar-toggable">
     {% include 2020/2-body/navigation.html %}
   </nav>
   
@@ -26,7 +26,7 @@ layout: compress
     {{ content }}
   </main>
 
-  <footer class="no-print">
+  <footer>
     <div id="support">
       {% include 2020/3-footer/support.html %}
     </div>
@@ -35,11 +35,11 @@ layout: compress
     </div>
   </footer>
 
-  <div class="policy-banner no-print" id="policy-banner" data-nosnippet>
+  <div class="policy-banner" id="policy-banner" data-nosnippet>
     {% include 2020/policy-banner.html %}
   </div>
   
-  <div class="controls buttons no-print" data-nosnippet>
+  <div class="controls buttons" data-nosnippet>
     {% include 2020/2-body/controls.html %}
   </div>
 
