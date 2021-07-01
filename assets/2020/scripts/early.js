@@ -18,14 +18,14 @@ function writeCookie(cookieName, cookieValue, ttl = 14) {
 }
 
 function toggleTheme() {
-  c.toggle('dark-theme');
-  c.toggle('light-theme');
+  bc.toggle('dark-theme');
+  bc.toggle('light-theme');
 
   writeCookie('darkTheme', c.contains('dark-theme'))
 }
 
 function toggleDyslexicFont() {
-  c.toggle('dyslexic');
+  bc.toggle('dyslexic');
 
   writeCookie('dyslexic', c.contains('dyslexic'))
 }
@@ -54,7 +54,8 @@ function restoreSettingsFromCookie() {
     toggleDyslexicFont()
   }
   if (null != getCookie().match(/fontSize/))
-    zoom((getCookie().match(/(^| )fontSize=([^;]+)/))[2] - 12)
+    zoom((getCookie().match(/(^| )fontSize=([^;]+)/))[2] - 12);
+  acceptPolicy()
 }
 
 restoreSettingsFromCookie()
