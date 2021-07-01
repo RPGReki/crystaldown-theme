@@ -28,7 +28,7 @@
     "comments"
     "footer";
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     grid-template: auto;
     gap: 1vmin 5vmin;
     grid-template-areas:
@@ -41,7 +41,7 @@
       "footer";
   }
 
-  @media (min-width: 992px) {
+  @media screen and (min-width: 992px) {
     font-size: 14pt;
     grid-template: auto / 1fr calc(992px - 3rem) 1fr;
     gap: 1rem;
@@ -82,7 +82,7 @@
     grid-area: navigation;
     margin-left: 1vmin;
 
-    @media (min-width: 576px) {
+    @media screen and (min-width: 576px) {
       display: grid;
 
       grid-template-columns: 1fr 1fr;
@@ -91,12 +91,12 @@
       margin: .5rem .5rem -1rem;
     }
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
       margin: 15px 15px 0;
       gap: .5rem;
     }
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       display: flex;
       margin: 0 1rem;
       grid-column: 1 / span 3;
@@ -113,11 +113,11 @@
       border-radius: .3rem;
       text-align: center;
 
-      @media (min-width: 576px) {
+      @media screen and (min-width: 576px) {
         margin-bottom: 0;
       }
 
-      @media (min-width: 992px) {
+      @media screen and (min-width: 992px) {
         align-items: center;
         flex-basis: initial;
       }
@@ -127,14 +127,14 @@
         text-decoration: none !important;
         width: 100%;
 
-        @media (max-width: 575.98px) {
+        @media screen and (max-width: 575.98px) {
           padding: .5rem 1rem;
           line-height: 1.5;
           font-size: 1.25rem;
         }
       }
 
-      @media (min-width: 992px) {
+      @media screen and (min-width: 992px) {
         &,
         &:last-child {
           margin-bottom: 0;
@@ -180,7 +180,7 @@
       }
     }
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
       margin: .5rem 0 10px;
       padding-left: 15px;
       padding-right: 15px;
@@ -191,7 +191,7 @@
       }
     }
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       grid-column: 2;
       grid-row: 3;
       margin: 0;
@@ -207,7 +207,7 @@
       }
     }
 
-    @media (min-width: 1200px) and (min-height: 840px) {
+    @media screen and (min-width: 1200px) and (min-height: 840px) {
       position: static;
       grid-column: 3;
       grid-row: 5;
@@ -246,16 +246,16 @@
     font-size: 80%;
     padding: .5em 1em;
     
-    @media (min-width: 786px) {
+    @media screen and (min-width: 786px) {
       margin: .5rem 15px;
     }
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       grid-column: 2;
       grid-row: 4;
     }
     
-    @media (min-width: 1200px) and (min-height: 800px) {
+    @media screen and (min-width: 1200px) and (min-height: 800px) {
       margin-top: -.5rem;
       grid-column: 1 / 4;
     }
@@ -266,12 +266,12 @@
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 786px) {
+    @media screen and (min-width: 786px) {
       margin-left: 15px;
       margin-right: 15px;
     }
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       grid-column: 2;
       grid-row: 5;
       min-height: calc(100vh - 458px);
@@ -299,7 +299,7 @@
       a {
         min-width: 60vw;
 
-        @media (min-width: 768px) {
+        @media screen and (min-width: 768px) {
           min-width: 300px;
 
           &:first-child {
@@ -324,17 +324,17 @@
     flex-wrap: wrap;
     padding: 1rem;
 
-    @media (min-width: 576px) {
+    @media screen and (min-width: 576px) {
       display: grid;
       grid-template-columns: auto auto;
       grid-template: "support copyright";
     }
 
-    @media (min-width: 786px) {
+    @media screen and (min-width: 786px) {
       display: flex;
     }
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       margin-left: 0;
       grid-column: 1 / span 3;
       grid-row: 7;
@@ -348,7 +348,7 @@
 
       margin-bottom: 1rem;
 
-      @media (min-width: 768px){
+      @media screen and (min-width: 768px){
         margin-bottom: 0;
       }
    }
@@ -361,14 +361,14 @@
     position: sticky;
     top: 0;
 
-    @media (min-width: 786px) {
+    @media screen and (min-width: 786px) {
       margin-left: 0;
       margin-right: 0;
       grid-column: 1;
       grid-row: 3;
     }
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       margin-left: 0;
       margin-right: 0;
       grid-column: 1 / span 3;
@@ -392,7 +392,7 @@
   >#comments {
     grid-area: comments;
 
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       margin: 0;
       grid-column: 2;
       grid-row: 6;
@@ -487,7 +487,7 @@ form {
 .sm-down {
   display: initial;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 }
@@ -497,7 +497,7 @@ form {
   flex-grow: 1;
   flex-basis: 0;
 
-  @media (min-width: 992px) {
+  @media screen and (min-width: 992px) {
     &:first-child {
       margin: .5rem;
       margin-left: 0;
@@ -524,7 +524,7 @@ form {
 }
 
 h1, .h1, h2, .h2, h3 {
-  @media (max-width: 575.98px) {
+  @media screen and (max-width: 575.98px) {
     margin: 0 2vmin;
   }
 }
@@ -578,7 +578,7 @@ h3, .h3 {
 .collapse:not(.show) {
   display: none !important;
 
-  @media (min-width: 992px) {
+  @media screen and (min-width: 992px) {
     display: flex !important;
   }
 }
@@ -593,7 +593,7 @@ h3, .h3 {
   z-index: 90;
   padding-bottom: .5rem;
     
-  @media (min-width: 786px) {
+  @media screen and (min-width: 786px) {
     margin-left: -15px;
     margin-right: -15px;
     padding-left: 15px;
@@ -601,7 +601,7 @@ h3, .h3 {
     min-width: calc(100vw - 18px);
   }
 
-  @media (min-width: 992px) {
+  @media screen and (min-width: 992px) {
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
@@ -609,13 +609,13 @@ h3, .h3 {
     min-width: unset;    
   }
 
-  @media (min-width: 1200px) and (min-height: 800px) {
+  @media screen and (min-width: 1200px) and (min-height: 800px) {
     top: 0;
     padding-top: 1rem;
   }
 }
 
-@media (max-width: 575.98px){
+@media screen and (max-width: 575.98px){
 main > .row {
   margin-left: 0;
   margin-right: 0;

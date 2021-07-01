@@ -1,4 +1,4 @@
-<ul style="list-style: none">{% for page in pages %}
+<ul style="list-style:none;padding:0">{% for page in pages %}
     {% if page.rating == "adult" %}{% continue %}{% endif %}
     {% if page.is_amp %}{% continue %}{% endif %}
     {% if jekyll.environment != "unpublished" and page.published == "sponsors" %}{% break %}{% endif %}

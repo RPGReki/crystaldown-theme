@@ -11,4 +11,12 @@
     aria-label="Decrease Font Size">
     <span>🔍−</span>
   </a>
+  <div class="icons-shields d-lg-none">
+    <a title="Share Chapter using Web Share API"
+        style="height:48px;width:48px"
+        onclick="navigator.share({title:'{{ page.title | replace: "'", "\\'" }}', url:'{{ s }}'})"
+        target="_blank" rel="noopener nofollow" id="share">
+        <img loading="lazy" src="{{ "/proxy/shields/-/share/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Share Post using Web Share API" width="48" height="48" style="right:3px;width:75px">
+    </a>
+  </div>
 </div>

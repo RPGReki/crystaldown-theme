@@ -1,22 +1,32 @@
-<p class="social icons">
-  {% if page.feed %}{% unless page.canonical_domain or page.canonical_url %}
+<p class="icons-shields">
+  {% unless page.canonical_domain or page.canonical_url %}
+  {% if page.feed %}
   <link rel="alternate" type="application/atom+xml" href="{{ page.feed | absolute_url }}" title="{{ page.book.series }} Chapters Atom Feed">
   <a rel="alternate" type="application/atom+xml"
    href="{{ page.feed | absolute_url }}"
    title="{{ page.book.series }} Chapters Atom Feed">
-    <img loading="lazy" src="{{ '/assets/images/feed.webp' | prepend: site.static_url | absolute_url }}" alt="Atom Feed" width="64" height="64">
+    <img loading="lazy" src="{{ '/proxy/shields/-/rss/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Atom Feed" width="64" height="64">
   </a>
-  {% endunless%}{% endif %}
+  {% endif %}
+  {% if page.podcast %}
+  <link rel="alternate" type="application/atom+xml" href="{{ page.podcast | absolute_url }}" title="{{ page.book.series }} Audiobook Podcast">
+  <a rel="alternate" type="application/rss+xml"
+   href="{{ page.feed | absolute_url }}"
+   title="{{ page.book.series }} Audiobook Podcast">
+    <img loading="lazy" src="{{ '/proxy/shields/-/googlepodcasts/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Google Podcasts" width="64" height="64">
+  </a>
+  {% endif %}
+  {% endunless %}
   {% if page.scribblehub %}
   <a href="{{ page.scribblehub }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
-    <img loading="lazy" src="{{ '/assets/images/scribblehub.webp' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
+    <img loading="lazy" src="{{ '/proxy/shields/-/scribblehub/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
   </a>
   {% endif %}
   {% if page.wattpad %}
   <a href="{{ page.wattpad }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Wattpad">
-    <img loading="lazy" src="{{ '/assets/images/wattpad.webp' | prepend: site.static_url | absolute_url }}" alt="Wattpad" width="86" height="64">
+    <img loading="lazy" src="{{ '/proxy/shields/-/wattpad/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Wattpad" width="86" height="64">
   </a>
   {% endif %}
 </p>
