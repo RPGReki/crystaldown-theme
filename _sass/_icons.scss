@@ -7,22 +7,24 @@
   font-family: emoji;
 }
 
-.icons-shields {
+.icons {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-
-  a {
-    display: block;
-    width: 64px;
-    overflow: hidden;
-    border-radius: 7px;
-  }
 
   img {
     margin: 0;
     position:relative;
     width: 101px;
     right:4px;
+  }
+}
+
+.shields {
+  a {
+    display: block;
+    width: 64px;
+    overflow: hidden;
+    border-radius: 7px;
   }
 }

@@ -66,7 +66,7 @@ $height: 5cm;
   h1, .h1 {
     margin-top: 0;
     font-family: "Cardo", "Times New Roman", sans-serif;
-    font-size: 8.4mm !important;
+    font-size: 9.6mm !important;
   }
   
   h2, .h2 {
@@ -80,31 +80,32 @@ $height: 5cm;
   }
 
   .col {
-      order: 1;
-      height: $height;
-      width: calc(100% - $height);
+    order: 2;
+    height: $height;
+    width: calc(100% - $height);
   }
 
   .col-12,
   .col-print-logo {
-      order: 2;
-      height: $height;
-      width: $height;
-      max-width: unset;
-      flex: 0 0 auto;
+    order: 1;
+    height: $height;
+    width: $height + 1cm;
+    max-width: unset;
+    flex: 0 0 auto;
 
-      img {
-        width:  $height;
-        height: $height;
-      }
+    img {
+      width:  $height;
+      height: $height;
+    }
   }
-  
+
+  .print-grayscale {
     .shields img {
       border: 1px solid white !important;
       filter: invert(1) grayscale(1) contrast(2.5);
     }
     
-    .icons-shields {
+    .icons {
       a {
         border: 1px solid black !important;
       }
@@ -114,32 +115,9 @@ $height: 5cm;
       }
     }
 
-    img[src*=uulm] {
-      filter: contrast(1.5);
+    img {
+      filter: grayscale(1) contrast(1.5);
     }
-  
-  
-  .print-break-before {
-      page-break-before: always;
-  }
-
-  #work-experience {
-    margin-top: 10mm;
-  }
-
-  [about='#it-nrw'],
-  [about='#plusserver'],
-  [about='#clufamily'] {
-    height: $height + 0mm;
-  }
-
-  [about='#schuelernachhilfe1'],
-  [about='#teaching-assistant'],
-  [about='#sgi'],
-  [about='#bsg-mm'],
-  [about='#devradio'],
-  [about='#sk'] {
-    height: $height + 7mm;
   }
 
   a:any-link {
