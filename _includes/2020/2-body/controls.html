@@ -11,6 +11,7 @@
     aria-label="Decrease Font Size">
     <span>🔍−</span>
   </a>
+{% unless canonical_url %}
   <div class="icons shields d-lg-none">
     <a title="Share Chapter using Web Share API"
         style="height:48px;width:48px"
@@ -19,4 +20,5 @@
         <img loading="lazy" src="{{ "/proxy/shields/-/share/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Share Post using Web Share API" width="48" height="48" style="right:3px;width:75px">
     </a>
   </div>
+{% endunless %}
 </div>
