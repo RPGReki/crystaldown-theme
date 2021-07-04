@@ -2,17 +2,22 @@
 <form name="Comments" method="POST" action="{{ site.comments.action }}" id="commentform" class="form-horizontal no-print" data-netlify="true" netlify-honeypot="captcha">
   <fieldset id="commentfields">
     <div>
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" placeholder="Name" class="w-100" aria-required="true">
-      <label for="email">Email <span>(not shown)</span></label>
-      <input type="email" name="email" id="email" placeholder="name@domain.tld" class="w-100" aria-required="true">
+      <label for="name">Name*</label>
+      <input type="text" name="name" id="name" placeholder="Name" class="w-100" aria-required="true" required="true">
+      <label for="email">Email*<span> (not shown)</span></label>
+      <input type="email" name="email" id="email" placeholder="name@domain.tld" class="w-100" aria-required="true" required="true">
       <label for="url">Website</label>
       <input type="text" name="url" id="url" placeholder="https://domain.tld" class="w-100">
     </div>
     <div>
       <label for="message">Comment*</label>
-      <textarea name="message" id="message" placeholder="Leave a comment." class="w-100" aria-required="true"></textarea>
+      <textarea name="message" id="message" placeholder="Leave a Comment." class="w-100 h-25" aria-required="true" required="true"></textarea>
     </div>
+    <div>
+      <input type="checkbox" name="accept-policy" id="accept-policy" aria-required="true" required="true">
+      <label for="accept-policy">
+        I consent to my name and comment being processed by Cloudflare and Netlify and being stored and displayed on this site.
+      </label>
     <div class="d-none">
       <input name="slug" type="hidden" value="{{ slug }}">
       <label for="captcha">Captcha</label>
