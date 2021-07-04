@@ -1,0 +1,31 @@
+---
+# Layout Rewrite 2020: Homepage Layout
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+<head>
+  {% include 2021/1-head/1-common.html %}
+  {% include 2021/1-head/2-social-common.html %}
+  {% include 2021/1-head/4-noscript.html %}
+</head>
+<body id="body" class="dark-theme" lang="{{ page.lang }}">
+  {% include 2021/2-body/1-header.html %}
+  
+  <ol class="breadcrumb" aria-label="breadcrumb">
+    {% include 2021/2-body/2-breadcrumbs/home.html %}
+  </ol>
+  
+  <main id="content" class="home">
+    {{ content }}
+  </main>
+
+  {% include 2021/2-body/4-footer.html %}
+
+  {% include 2021/2-body/5-policy-banner.html %}
+  
+  {% include 2021/2-body/6-controls.html %}
+
+  <!-- hash: 'sha256-A4JZnFCGjbho2ITgxvzKTBse/cJesrRa3yg9S8aEKEc=' -->
+  <script>window['pageType']='home'</script>
+  

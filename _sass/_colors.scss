@@ -2,8 +2,12 @@
   >header {
     background: $accent;
 
-    &, a {
+    &, .nav-item {
       color: $white;
+    }
+
+    .dropdown-item {
+      color: $black;
     }
   }
 

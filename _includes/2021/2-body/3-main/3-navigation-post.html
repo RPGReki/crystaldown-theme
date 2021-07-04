@@ -1,0 +1,7 @@
+{% if previous_pages %}
+  <a class="col-12 col-sm btn btn-lg btn-primary previous" title=" {{ previous_pages.title }}" href="{{ previous_pages.url | absolute_url }}">{{ previous_pages.title }}</a>
+{% endif %}
+  
+{% if next_pages %}
+  <a class="col-12 col-sm btn btn-lg btn-primary next" title="{{ next_pages.title }}" href="{{ next_pages.url | absolute_url }}">{{ next_pages.title }}</a>
+{% endif %}

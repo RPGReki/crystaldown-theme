@@ -1,0 +1,63 @@
+---
+# Layout Rewrite 2021: Chapter Layout
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+<head>
+  {% include 2021/1-head/1-common.html %}
+  {% include 2021/1-head/2-social-chapter.html %}
+  {% include 2021/1-head/3-extra-chapter.html %}
+  {% include 2021/1-head/4-noscript.html %}
+</head>
+<body id="body" class="dark-theme" lang="{{ page.lang }}">
+  {% include 2021/2-body/1-header.html %}
+
+  <ol class="breadcrumb" aria-label="breadcrumb">
+    {% include 2021/2-body/2-breadcrumbs/chapter.html %}
+  </ol>
+
+  <main id="content" class="chapter">
+    <header>
+      {% include 2021/2-body/3-main/1-structured-data-chapter.html %}
+      {% include 2021/2-body/3-main/2-header-chapter.html %}
+      {% assign words = content | markdownify | strip_html | split: " " | size %}
+      <nav class="row mx-0 my-2">
+        {% include 2021/2-body/3-main/3-navigation-chapter.html %}
+      </nav>
+    </header>
+    {% include 2021/2-body/3-main/4-audio.html %}
+    {% if jekyll.environment != "unpublished" %}
+    <section class="hyphenate" property="text" aria-flowto="navigation" id="chapter-content">
+    {% else %}
+    <section property="text" aria-flowto="navigation" id="chapter-content" contenteditable="true">
+    {% endif %}
+      <!--sse-->
+      {% include linkify content=content %}
+      <!--/sse-->
+    </section>
+    <footer>
+      {% if words > 300 %}
+      <nav class="row mx-0">
+        {% include 2021/2-body/3-main/3-navigation-chapter.html %}
+      </nav>
+      <hr>
+      {% endif %}
+      <aside class="social">
+        {% include 2021/2-body/3-main/5-sharing-chapter.html %}
+      </aside>
+    </footer>
+  </main>
+
+  {% include 2021/2-body/4-footer.html %}
+
+  {% include 2021/2-body/5-policy-banner.html %}
+  
+  {% include 2021/2-body/6-controls.html %}
+
+  {% if page.comments %}
+    {% include 2021/2-body/7-comments.html %}
+  {% endif %}
+
+  <!-- hash: 'sha256-jt0fluv+2kfDRP7lqettjyHx8MocFVb7Knqy4uxo7Ps=' -->
+  <script>window['pageType']='chapter'</script>

@@ -1,0 +1,95 @@
+---
+# Layout Rewrite 2021: Post Layout
+layout: compress
+---
+{% if page.previous %}
+  {% assign previous_pages = page.previous %}
+  {% for i in (1..100) %}
+    {% if previous_pages.long != true or previous_pages.redirect_to %}
+      {% if previous_pages.previous %}
+        {% assign previous_pages = previous_pages.previous %}
+      {% else %}
+        {% assign previous_pages = false %}
+      {% endif %}
+    {% else %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if page.next %}
+  {% assign next_pages = page.next %}
+  {% for i in (1..100) %}
+    {% if next_pages.long != true or next_pages.redirect_to %}
+      {% if next_pages.next %}
+        {% assign next_pages = next_pages.next %}
+      {% else %}
+        {% assign next_pages = false %}
+      {% endif %}
+    {% else %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% include 2021/1-head/1-common.html %}
+  {% include 2021/1-head/2-social-common.html %}
+  {% include 2021/1-head/3-extra-post.html %}
+  {% include 2021/1-head/4-noscript.html %}
+</head>
+<body id="body" class="dark-theme" lang="{{ page.lang }}">
+  {% include 2021/2-body/1-header.html %}
+  
+  <ol class="breadcrumb" aria-label="breadcrumb">
+    {% include 2021/2-body/2-breadcrumbs/post.html %}
+  </ol>
+
+  <main id="content" class="post">
+    <header>
+      {% include 2021/2-body/3-main/1-structured-data-post.html %}
+      {% include 2021/2-body/3-main/2-header-post.html %}
+      {% assign words = content | markdownify | strip_html | split: " " | size %}
+      <nav class="row mx-0 my-2">
+        {% include 2021/2-body/3-main/3-navigation-post.html %}
+      </nav>
+    </header>
+    {% include 2021/2-body/3-main/4-audio.html %}
+    {% if jekyll.environment != "unpublished" %}
+    <section class="hyphenate" property="text" aria-flowto="navigation" id="post-content">
+    {% else %}
+    <section class="hyphenate" property="text" aria-flowto="navigation" id="post-content" contenteditable="true">
+    {% endif %}
+      <!--sse-->
+      {{ content }}
+      <!--/sse-->
+    </section>
+    <footer>
+      {% if words > 300 %}
+      <nav class="row mx-0" id="navigation" aria-flowto="comments">
+        {% include 2021/2-body/3-main/3-navigation-post.html %}
+      </nav>
+      {% endif %}
+
+      <hr>
+
+      <aside class="social">
+        {% include 2021/2-body/3-main/5-sharing-post.html %}
+      </aside>
+    </footer>
+  </main>
+
+  {% include 2021/2-body/4-footer.html %}
+
+  {% include 2021/2-body/5-policy-banner.html %}
+  
+  {% include 2021/2-body/6-controls.html %}
+
+  {% if page.comments %}
+    {% include 2021/2-body/7-comments.html %}
+  {% endif %}
+
+  <!-- hash: 'sha256-0x8+KctX5w3DwyXg14J1w5wIgB1Asxhd0pasYrI9TKg=' -->
+  <script>window['pageType']='post'</script>

@@ -1,0 +1,25 @@
+---
+# Layout Rewrite 2021: Schema Layout
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+<head>
+  {% include 2021/1-head/1-common.html %}
+  {% include 2021/1-head/4-noscript.html %}
+</head>
+<body id="body" class="dark-theme" lang="{{ page.lang }}">
+  {% include 2021/2-body/1-header.html %}
+
+  <ol class="breadcrumb" aria-label="breadcrumb">
+    {% include 2021/2-body/2-breadcrumbs/schema.html %}
+  </ol>
+  
+  <main id="content" class="schema">
+    {% include 2021/2-body/3-schema.html %}
+  </main>
+
+  {% include 2021/2-body/4-footer.html %}
+
+  <!-- hash: 'sha256-B75kuj4XBwqTynjEBPY0crnnQrCH3Uckwy8CeNtR5Mg=' -->
+  <script>window['pageType']='base'</script>

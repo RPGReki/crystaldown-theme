@@ -1,0 +1,16 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+    "@type": "ListItem",
+    "position": 0,
+    "name": "{{ site.title }}",
+    "item": "{{ "/" | prepend: site.breadcrumb_domain | absolute_url }}"
+    }]
+}
+</script>
+
+<li class="breadcrumb-item active" aria-current="page">
+    {{ site.title }}
+</li>
