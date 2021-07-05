@@ -24,7 +24,8 @@
   <tr>
     <td>Species:</td>
     <td>
-{{ character.species | join: " " }}
+      {% assign species = character.species | join: " " %}
+      {% include linkify content=species %}
     </td>
   </tr>
   <tr>

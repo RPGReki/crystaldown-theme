@@ -17,7 +17,7 @@ for hay in include.data
     "@context": {
       "rdfa": "https://www.w3.org/ns/rdfa#",
       "schema": "https://schema.org/",
-      "cd": "https://cd-schema.tkma.tkma.tk/"
+      "cd": "https://cs.0xreki.de/"
     },
     "@graph": [{
       "@id": "{{ page.url | absolute_url }}#{{ id }}",
@@ -56,7 +56,7 @@ for hay in include.data
         {% assign char = hay.character | append: '-latest' %}
         {% assign character = site.data.characters[char] %}
         "schema:gender": "{{ character.gender }}",
-        "cd:race": {{ character.race | jsonify }},
+        "cd:species": {{ character.species | jsonify }},
         "schema:height": {
           "@type": "schema:Distance",
           "@value": "{{ character.appearance.height }}"
