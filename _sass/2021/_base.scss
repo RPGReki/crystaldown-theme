@@ -425,6 +425,8 @@ h3, .h3 {
   }
 }
 
-.dropdown-menu {
-  padding: .5rem 2em .5rem 0;
+@media screen and (min-width: 768px){
+  .dropdown-menu {
+    padding: .5rem 2em .5rem 0;
+  }
 }
