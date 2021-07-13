@@ -171,13 +171,12 @@
 
     @media screen and (min-width: 992px) {
       grid-column: 2;
-      grid-row: 3;
+      grid-row: 4;
       min-height: calc(100vh - 12rem - 177px);
       padding: 1rem 0;
     }
 
     @media screen and (min-width: 1200px) and (min-height: 840px) {
-      grid-row: 3 / 5;
       min-height: calc(100vh - 12rem - 113px);
     }
 
@@ -226,7 +225,7 @@
   >.policy-banner {
     display: none;
     grid-area: controls;
-    z-index: 100;
+    z-index: 1000;
     position: sticky;
     top: 0;
 
