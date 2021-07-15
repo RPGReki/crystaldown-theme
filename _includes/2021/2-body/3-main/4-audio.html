@@ -1,7 +1,7 @@
 <div class="row tts-controls align-items-center no-gutters pb-2">
     {% if page.audio %}
       <div class="col-6 col-md-auto mr-md-2">This chapter as audio:</div>
-      <audio controls class="col-6 col-md" aria-describedby="chapter-content">
+      <audio controls class="col-6 col-md" aria-describedby="chapter-content" preload="none">
         {% for mirror in page.audio_mirror %}
         {% capture mp4-42 %}
         <link rel="alternate" href="{{ page.path | replace: '.md', '.42.m4a' | regex_replace: '^(/|)(_posts/personal|[a-z\-_]*)/', mirror }}" type="audio/mp4; codecs=mp4a.40.42">
