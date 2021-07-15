@@ -1,4 +1,4 @@
-@import "bootstrap/bootstrap.min";
+@import "bootstrap/bootstrap";
 @import "bootstrap/bootstrap-toggle.min";
 @import "functions";
 @import "fonts-files-web";
@@ -31,7 +31,7 @@
 
   @media screen and (min-width: 992px) {
     font-size: 14pt;
-    grid-template: auto / 1fr calc(960px) 1fr;
+    grid-template: auto / 1fr 960px 1fr;
     gap: 0;
   }
 
@@ -319,11 +319,6 @@ form {
   fieldset>div {
     margin: .5rem;
   }
-
-  .g-recaptcha {
-    margin-top: .1rem;
-  }
-
 }
 
 #comments {
@@ -427,5 +422,7 @@ h3, .h3 {
 @media screen and (min-width: 768px){
   .dropdown-menu {
     padding: .5rem 2em .5rem 0;
+    left:unset;
+    right:0;
   }
 }
