@@ -23,10 +23,16 @@
     <img loading="lazy" src="{{ '/proxy/shields/-/scribblehub/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
   </a>
   {% endif %}
+  {% if page.deviantart %}
+  <a href="{{ page.deviantart }}" rel="alternate"
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on deviantart">
+    <img loading="lazy" src="{{ '/proxy/shields/-/deviantart/shield.svg' | prepend: site.static_url | absolute_url }}" alt="deviantart" width="64" height="64">
+  </a>
+  {% endif %}
   {% if page.wattpad %}
   <a href="{{ page.wattpad }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Wattpad">
-    <img loading="lazy" src="{{ '/proxy/shields/-/wattpad/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Wattpad" width="64" height="64">
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on wattpad">
+    <img loading="lazy" src="{{ '/proxy/shields/-/wattpad/shield.svg' | prepend: site.static_url | absolute_url }}" alt="wattpad" width="64" height="64">
   </a>
   {% endif %}
 </p>
