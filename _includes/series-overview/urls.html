@@ -17,16 +17,24 @@
   </a>
   {% endif %}
   {% endunless %}
+  {% if page.deviantart %}
+  <a href="{{ page.deviantart }}" rel="alternate"
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on DeviantArt{% if page.deviantart_status %} ({{ page.deviantart_status }}){% endif %}">
+    <img loading="lazy" src="{{ '/proxy/shields/-/deviantart/shield.svg' | prepend: site.static_url | absolute_url }}"
+         alt="DeviantArt" width="64" height="64"{% if page.deviantart_status %} style="filter:grayscale(1)"{% endif %}>
+  </a>
+  {% endif %}
   {% if page.scribblehub %}
   <a href="{{ page.scribblehub }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
     <img loading="lazy" src="{{ '/proxy/shields/-/scribblehub/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
   </a>
   {% endif %}
-  {% if page.deviantart %}
-  <a href="{{ page.deviantart }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on deviantart">
-    <img loading="lazy" src="{{ '/proxy/shields/-/deviantart/shield.svg' | prepend: site.static_url | absolute_url }}" alt="deviantart" width="64" height="64">
+  {% if page.royalroad %}
+  <a href="{{ page.royalroad }}" rel="alternate"
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Royal Road{% if page.royalroad_status %} ({{ page.royalroad_status }}){% endif %}">
+    <img loading="lazy" src="{{ '/proxy/shields/-/royalroad/shield.svg' | prepend: site.static_url | absolute_url }}"
+      alt="Royal Road" width="64" height="64"{% if page.royalroad_status %} style="filter:grayscale(1)"{% endif%}>
   </a>
   {% endif %}
   {% if page.wattpad %}
