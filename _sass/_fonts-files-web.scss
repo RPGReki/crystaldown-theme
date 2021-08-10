@@ -89,6 +89,17 @@
 }
 
 @font-face {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Orbitron'),
+       local('Orbitron-Regular'),
+       url(/assets/fonts/Orbitron-Regular.woff2) format('woff2'),
+       url(/assets/fonts/Orbitron-Regular.ttf) format('truetype');
+}
+
+@font-face {
   font-family: "Alexa";
   font-style: normal;
   font-weight: 400;
