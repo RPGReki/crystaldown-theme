@@ -1,16 +1,13 @@
 * {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (min-width: 1025px) {
-    text-rendering: optimizeLegibility;
-  }
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: "Source Sans Pro", "Noto Sans", Roboto, "Segoe UI", sans-serif;
-  // Altenative I
-  font-feature-settings: "ss04";
+  font-family: "Source Sans 3", "Source Sans Pro", "Noto Sans", Roboto, "Segoe UI", sans-serif;
+  // Altenative I, dotted zero
+  font-feature-settings: "ss01", "ss10";
 }
 
 .unicode-icon, .button a span {
@@ -19,6 +16,7 @@ body {
 
 h1, .h1, h2, .h2, h3 {
   font-family: "Cardo", "Source Serif Pro", "Noto Serif", serif;
+  font-feature-settings: "dlig";
 }
 
 .handwriting {
@@ -27,7 +25,7 @@ h1, .h1, h2, .h2, h3 {
 
 .inscription {
   font-family: "Cardo", "Source Serif Pro", "Noto Serif", serif;
-  font-feature-settings: "hlig";
+  font-feature-settings: "hlig", "hist";
   margin: 0 4rem 1rem;
 }
 

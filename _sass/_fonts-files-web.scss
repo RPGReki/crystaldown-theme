@@ -12,17 +12,6 @@
 @font-face {
   font-family: "Cardo";
   font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Cardo Regular'),
-       local('Cardo-Regular'),
-       url(/assets/fonts/Cardo-Regular.woff2) format('woff2'),
-       url(/assets/fonts/Cardo-Regular.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: "Cardo";
-  font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: local('Cardo Bold'),
@@ -31,27 +20,37 @@
        url(/assets/fonts/Cardo-Bold.ttf) format('truetype');
 }
 
-
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Source Sans Pro Regular'),
-       local('SourceSansPro-Regular'),
-       url(/assets/fonts/Source-Sans-Pro-Regular.woff2) format('woff2'),
-       url(/assets/fonts/Source-Sans-Pro-Regular.ttf) format('truetype');
+  src: local('Source Sans 3 Regular'),
+       local('SourceSans3-Regular'),
+       url(/assets/fonts/Source-Sans3-Regular.woff2) format('woff2'),
+       url(/assets/fonts/Source-Sans3-Regular.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Source Sans 3 Italic'),
+       local('SourceSans3-It'),
+       url(/assets/fonts/Source-Sans3-It.woff2) format('woff2'),
+       url(/assets/fonts/Source-Sans3-It.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Source Sans Pro Bold'),
-       local('SourceSansPro-Bold'),
-       url(/assets/fonts/Source-Sans-Pro-Bold.woff2) format('woff2'),
-       url(/assets/fonts/Source-Sans-Pro-Bold.ttf) format('truetype');
+  src: local('Source Sans 3 Bold'),
+       local('SourceSans3-Bold'),
+       url(/assets/fonts/Source-Sans3-Bold.woff2) format('woff2'),
+       url(/assets/fonts/Source-Sans3-Bold.ttf) format('truetype');
 }
 
 @font-face {
