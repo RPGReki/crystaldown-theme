@@ -1,5 +1,5 @@
 <h2 class="no-print mx-2">Leave a Comment</h2>
-<form name="Comments" method="POST" action="{{ site.comments.action }}" id="commentform" class="form-horizontal no-print" data-netlify="true" netlify-honeypot="captcha">
+<form name="Comments" method="POST" action="{{ site.comments.action }}" id="commentform" class="form-horizontal no-print">
   <fieldset id="commentfields">
     <div>
       <label for="name">Name*</label>
@@ -21,8 +21,9 @@
     </div>
     <div class="d-none">
       <input name="slug" type="hidden" value="{{ slug }}">
-      <label for="captcha">Captcha</label>
-      <input name="captcha" type="text">
+      <label for="_gotcha">Captcha</label>
+      <input name="_gotcha" type="text">
+      <input type="hidden" name="_to" value="{{ site.comments.mailto }}">
     </div>
     <div>
       <button type="sumbit" id="commentbutton" class="btn btn-primary btn-block">Submit Comment</button>
