@@ -23,7 +23,7 @@
       <input name="slug" type="hidden" value="{{ slug }}">
       <label for="_gotcha">Captcha</label>
       <input name="_gotcha" type="text">
-      <input type="hidden" name="_to" value="{{ site.comments.mailto }}">
+      <input type="hidden" name="_hook" value="{{ site.comments.webhook }}">
     </div>
     <div>
       <button type="sumbit" id="commentbutton" class="btn btn-primary btn-block">Submit Comment</button>
