@@ -1,0 +1,44 @@
+{%
+for hay in include.data
+%}{%
+  assign id = hay.title | replace: "_", " " | slugify
+%}{% 
+  assign stack = hay.children
+%}{%  
+  unless include.category
+%}<div style="order: {{ hay.order }}" class="mb-3">
+    <h2 id="{{ id }}" style="order: -1"><a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/">{{ hay.title }}</a></h2>
+  {% 
+    include glossary-overview.html data=stack category=id level=3
+  %}
+  </div>
+{% 
+  else
+%}{%
+    if include.id
+%}{%
+      assign id = id | prepend: '-' | prepend: include.id
+%}{%
+    endif
+%}{%
+  unless hay.keywords
+%}
+  <div style="order: {{ hay.order }}" class="mb-2">
+    <h{{ include.level }} id="{{ id }}" style="order: -1"><a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ hay.title }}</a>
+      {% if hay.subtitle %}<br><small>{{ hay.subtitle }}</small>{% endif %}
+    </h{{ include.level }}>
+{%
+      assign level = include.level | plus: 1
+%}{% 
+      include glossary-overview.html data=stack category=include.category id=id level=level
+%}{%
+  else
+%}
+  <li id="{{ id }}"><a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ hay.title }}</a></li>
+{%
+    endunless
+%}{%
+  endunless
+%}{%
+endfor
+%}

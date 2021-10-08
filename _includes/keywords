@@ -3,21 +3,29 @@ for hay in include.data
 %}{% 
   assign id = hay.title | replace: "_", " " | slugify 
 %}{% 
-  unless include.id == "" 
-%}{% 
-    assign id = id | prepend: '-' | prepend: include.id 
-%}{% 
-  endunless
-%}{% 
-  if hay.keywords 
-%}{% 
-    assign keywords = hay.keywords | join: '|' | prepend: '(' | append: ')' 
-%}{% 
-    assign pair = keywords | append: '#' | append: id 
-%}{{ pair }}@{% 
-  endif
-%}{% 
   assign stack = hay.children
+%}{%  
+  unless include.category
 %}{% 
-  include keywords data=stack top=false id=id 
+    include keywords data=stack category=id
+%}{% 
+  else
+%}{% 
+    if include.id
+%}{% 
+      assign id = id | prepend: '-' | prepend: include.id 
+%}{% 
+    endif
+%}{% 
+    if hay.keywords 
+%}{% 
+      assign keywords = hay.keywords | join: '|' | prepend: '(' | append: ')' 
+%}{% 
+      assign pair = keywords | append: '@' | append: include.category | append: '/#' | append: id 
+%}{{ pair }};{% 
+    endif
+%}{% 
+    include keywords data=stack category=include.category id=id 
+%}{%
+  endunless
 %}{% endfor %}

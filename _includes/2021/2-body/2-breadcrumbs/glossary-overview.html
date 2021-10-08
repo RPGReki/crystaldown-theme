@@ -15,11 +15,6 @@
     }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "{{ page.book.series }} Glossary",
-        "item": "{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}glossary/"
-    }, {
-        "@type": "ListItem",
-        "position": 3,
         "name": "{{ page.title }}",
         "item": "{{ page.url | prepend: site.breadcrumb_domain | absolute_url }}"
     }]
@@ -31,9 +26,6 @@
 </li>
 <li class="breadcrumb-item">
     <a title="{{ page.book.series }}" href="{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}">{{ page.book.series }}</a>
-</li>
-<li class="breadcrumb-item">
-    <a title="{{ page.book.series }}" href="{{ page.book.url | prepend: site.breadcrumb_domain | absolute_url }}glossary/">{{ page.book.series }} Glossary</a>
 </li>
 <li class="breadcrumb-item active" aria-current="page">
     {{ page.title }}
