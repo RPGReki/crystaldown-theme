@@ -1,3 +1,4 @@
+{% capture now %}{{ 'now' | date: '%s'}}{% endcapture %}
 {% for p in previous_pages %}
   {%if p.published == "sponsors" %}
     <a class="col-12 col-sm btn btn-lg btn-primary previous" title="{{ p.title }}" href="{{ p.shortlink | replace: '/cd/', 'https://cd-ht.ml/' | replace: '/a/', 'https://amau.ga/'}}?p={{ site.token.max | divided_by: p.chapter | modulo: site.token.mod | plus: site.token.plus }}">{{ p.title }}</a>
@@ -5,11 +6,14 @@
     <a class="col-12 col-sm btn btn-lg btn-primary previous" title=" {{ p.title }}" href="{{ p.url | absolute_url }}">{{ p.title }}</a>
   {% endif %}
 {% endfor %}
-  
+{% capture page_time %}{{ page.date | date: '%s' }}{% endcapture %}
 {% for p in next_pages %}
-  {% if jekyll.environment != "unpublished" and p.published == "pre-sponsors" %}
+  {% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}
+  {% capture p_sponsor_time %}{{ p.date | date: '%s' | minus: 648000 }}{% endcapture %}
+  <!--now: {{now}}, page:{{page_time}}, p_time: {{p_time}}, p_sponsor_time: {{p_sponsor_time}}-->
+  {% if jekyll.environment != "unpublished" and page_sponsor_time > now %}
     {% break %}
-  {% elsif jekyll.environment != "unpublished" and p.published == "sponsors" and page.published != "sponsors" %}
+  {% elsif jekyll.environment != "unpublished" and page_time <= now and p_time > now %}
     <a class="col-12 col-sm btn btn-lg btn-patreon next" title="{{ site.patreon.title }}"
        href="{{ site.patreon.url }}" rel="payment">
         <span>
@@ -22,7 +26,7 @@
         </span>
         <span>{{ site.patreon.title }}</span>
     </a>
-  {% elsif page.published == "sponsors" %}
+  {% elsif p_time > now %}
   {% assign s = p.shortlink %}
   {% for i in site.shorturl %}
   {% assign s = s | replace : i.prefix, i.url %}

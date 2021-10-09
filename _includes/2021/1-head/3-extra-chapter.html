@@ -16,18 +16,18 @@
 {% assign next_pages = pages | where: "chapter", next_chapter_number %}
 
 {% for page in previous_pages %}
-{% if jekyll.environment != "unpublished" and page.published == "sponsors" %}{% break %}{% endif %}
 <link rel="prerender" href="{{ page.url }}">
 {% endfor %}
 
 {% for page in next_pages %}
-{% if jekyll.environment != "unpublished" and page.published == "sponsors" %}{% break %}{% endif %}
+{% capture post_time %}{{ page.date | date: '%s' }}{% endcapture %}
+{% if jekyll.environment != "unpublished" and post_time > now %}{% break %}{% endif %}
 <link rel="prerender" href="{{ page.url }}">
 {% endfor %}
 
-{% if page.external %}
-<link rel="alternate" href="{{ page.external }}">
-{% endif %}
+{% for url in page.external %}
+<link rel="alternate" href="{{ url }}">
+{% endfor %}
 
 <style>
 h1::before {

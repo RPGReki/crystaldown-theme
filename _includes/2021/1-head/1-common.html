@@ -11,10 +11,12 @@
 {% assign title_characters = 59 | minus: page.seo_title_fix %}
 <title>{{ title | truncate: title_characters, "…" }}</title>
 <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+{% capture now %}{{ 'now'| date: '%s'}}{% endcapture %}
+{% capture post_time %}{{ page.date | date: '%s'}}{% endcapture %}
 
 {% if page.robots %}
 <meta name="robots" content="{{ page.robots }}">
-{% elsif page.published == "sponsors" or page.published == "pre-sponsors" or page.published == "private" %}
+{% elsif post_time > now or page.published == "private" %}
 <meta name="robots" content="noindex, nofollow">
 {% endif %}
 {% if page.rating %}
@@ -69,7 +71,7 @@ a:any-link{text-decoration:none}
 <meta name="{{ pair.name }}" content="{{ pair.key }}">
 {% endfor %}
 
-{% unless page.published == "sponsors" or page.published == "pre-sponsors" %}
+{% unless post_time > now %}
     {% if page.canonical_url %}
         {% assign canonical_url = page.canonical_url | absolute_url %}
         <link rel="canonical" href="{{ canoncial_url | prepend: site.canonical_domain | absolute_url }}">
