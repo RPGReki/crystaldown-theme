@@ -1,5 +1,5 @@
 <h2 class="no-print mx-2">Leave a Comment</h2>
-<form name="Comments" method="POST" action="{{ site.comments.action }}" id="commentform" class="form-horizontal no-print">
+<form name="Comments" method="POST" action="{{ site.comments.action }}" id="commentform" class="form-horizontal no-print" data-netlify="true" netlify-honeypot="captcha">
   <fieldset id="commentfields">
     <div>
       <label for="name">Name*</label>
@@ -16,14 +16,13 @@
     <div class="row mx-2">
       <input type="checkbox" name="accept-policy" id="accept-policy" aria-required="true" required="true" class="col-auto mt-2">
       <label for="accept-policy" class="col">
-        I consent to my name and comment being processed by Cloudflare, Cloudcannon and Integromat, and being stored and displayed on this site.
+        I consent to my name and comment being processed by Cloudflare and Netlify and being stored and displayed on this site.
       </label>
     </div>
     <div class="d-none">
       <input name="slug" type="hidden" value="{{ slug }}">
-      <label for="_gotcha">Captcha</label>
-      <input name="_gotcha" type="text">
-      <input type="hidden" name="_hook" value="{{ site.comments.webhook }}">
+      <label for="captcha">Captcha</label>
+      <input name="captcha" type="text">
     </div>
     <div>
       <button type="sumbit" id="commentbutton" class="btn btn-primary btn-block">Submit Comment</button>
