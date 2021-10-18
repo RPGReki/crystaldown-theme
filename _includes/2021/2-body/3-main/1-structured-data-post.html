@@ -18,8 +18,7 @@
         "@id": "{{ page.url | absolute_url }}",
         "@type": "schema:BlogPosting",
         "schema:name": "{{ page.title }}",
-        "schema:datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
-        "schema:dateModified": "{% last_modified_at %Y-%m-%d %}",{% 
+        "schema:datePublished": "{{ page.date | date: "%Y-%m-%d" }}",{% 
         assign author = site.data.staff | where: "id", page.author | last %}
         "schema:author": { "@id": "{{ author.url }}" },
         "schema:image": { 
