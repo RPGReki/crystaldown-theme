@@ -33,16 +33,12 @@
 {% endif %}
 
 {% assign published = page.date | date: '%s' %}
-{% assign modified = page.last_modified_at | date: '%s' %}
 <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">
-{% if modified < published %}
-<meta property="article:modified_time" content="{{ page.date | date: '%Y-%m-%d' }}">
-{% else %}
-<meta property="article:modified_time" content="{% last_modified_at %Y-%m-%d %}">
+
 {% assign author = site.data.staff | where: "id", page.author | last %}
 <meta property="article:author" content="{{ author.url }}">
 <meta property="article:publisher" content="{{ author.url }}">
-{% endif %}
+
 <meta property="og:url"
     content="{% if page.shortlink %}{{ page.shortlink | replace: '/cd', 'https://cd-ht.ml' | replace: '/a', 'https://amau.ga' | absolute_url }}{% else %}{{ page.url | absolute_url }}{% endif %}">
 {% for t in page.tags %}
