@@ -4,7 +4,7 @@
     "@context": {
     "rdfa": "https://www.w3.org/ns/rdfa#",
     "schema": "https://schema.org/",
-    "cs": "https://cs.reki.wtf/"
+    "cs": "https://cs.0xreki.de/"
     },
     "@graph": [
     {% assign author = site.data.staff | where: "id", page.author | last %}
@@ -18,7 +18,8 @@
         "@id": "{{ page.url | absolute_url }}",
         "@type": "schema:BlogPosting",
         "schema:name": "{{ page.title }}",
-        "schema:datePublished": "{{ page.date | date: "%Y-%m-%d" }}",{% 
+        "schema:datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
+        "schema:dateModified": "{% last_modified_at %Y-%m-%d %}",{% 
         assign author = site.data.staff | where: "id", page.author | last %}
         "schema:author": { "@id": "{{ author.url }}" },
         "schema:image": { 
