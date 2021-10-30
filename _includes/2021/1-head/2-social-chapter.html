@@ -3,8 +3,8 @@
 <meta proprety="og:site_name" content="{{ site.title }}">
 <meta name="twitter:title" content="{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}">
 
-<meta property="og:image" content="{{ page.image | prepend: site.static_url | replace: 'avif', 'jpg' | absolute_url }}">
-<meta name="twitter:image" content="{{ page.image | replace: '-og.', '-card.' | prepend: site.static_url | replace: 'avif', 'jpg' | absolute_url }}">
+<meta property="og:image" content="{{ page.image | prepend: site.static_url | absolute_url }}">
+<meta name="twitter:image" content="{{ page.image | replace: '-og.', '-card.' | prepend: site.static_url | absolute_url }}">
 
 {% capture description %}
 {{ page.excerpt | markdownify | strip_html }}
