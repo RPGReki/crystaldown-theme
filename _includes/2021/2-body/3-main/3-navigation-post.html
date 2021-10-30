@@ -5,11 +5,9 @@
 {% capture now %}{{ 'now' | date: '%s' | plus: 43200 }}{% endcapture %}
 {% capture page_time %}{{ page.date | date: '%s' }}{% endcapture %}
 
-{% for p in next_pages %}
-  {% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}
-  {% if jekyll.environment != "unpublished" and p_time > now %}
-  {% break %}
-  {% endif %}
+{% if next_pages %}
+{% capture p_time %}{{ next_pages.date | date: '%s' }}{% endcapture %}
+  {% unless jekyll.environment != "unpublished" and p_time > now %}
   <a class="col-12 col-sm btn btn-lg btn-primary next" title="{{ next_pages.title }}" href="{{ next_pages.url | absolute_url }}">{{ next_pages.title }}</a>
-  {% break %}
-{% endfor %}
+  {% endunless %}
+{% endif %}
