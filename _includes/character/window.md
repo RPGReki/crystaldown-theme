@@ -2,8 +2,8 @@
 {% assign character = site.data.cd.characters[include.character] %}
 {% elsif page.termbase == "/amauga" %}
 {% assign character = site.data.amauga.characters[include.character] %}
-{% elsif page.termbase == "/bug-fixing" %}
-{% assign character = site.data.bug-fixing.characters[include.character] %}
+{% elsif page.termbase == "/my-life-as-a-cat" %}
+{% assign character = site.data.cat.characters[include.character] %}
 {% endif %}
 
 {:class="interface {{ include.class }}" style="order: 20"}
@@ -29,7 +29,7 @@
 > > {:onclick="toggleAccordion(this)" .inactive}
 > >
 > > {% for trait in character.traits %}
-> > - {{ trait.name }} ({{trait.type}}){% endfor %}
+> > - {{ trait.name }}{%if trait.type %} ({{trait.type}}){% endif %}{% endfor %}
 > >
 >
 > {:.interface}

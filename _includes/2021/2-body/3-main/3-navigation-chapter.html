@@ -1,4 +1,4 @@
-{% capture now %}{{ 'now' | date: '%s' | plus: 43200 }}{% endcapture %}
+{% capture now %}{{ 'now' | date: '%s' | plus: 10800 }}{% endcapture %}
 {% capture page_time %}{{ page.date | date: '%s' }}{% endcapture %}
 {% for p in previous_pages %}
   {% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}

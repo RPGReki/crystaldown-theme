@@ -2,7 +2,7 @@
   <a class="col-12 col-sm btn btn-lg btn-primary previous" title=" {{ previous_pages.title }}" href="{{ previous_pages.url | absolute_url }}">{{ previous_pages.title }}</a>
 {% endif %}
 
-{% capture now %}{{ 'now' | date: '%s' | plus: 43200 }}{% endcapture %}
+{% capture now %}{{ 'now' | date: '%s' | plus: 10800 }}{% endcapture %}
 {% capture page_time %}{{ page.date | date: '%s' }}{% endcapture %}
 
 {% if next_pages %}
