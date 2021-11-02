@@ -11,7 +11,7 @@
 {% for p in next_pages %}
   {% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}
   {% capture p_sponsor_time %}{{ p.date | date: '%s' | minus: 648000 }}{% endcapture %}
-  {% if jekyll.environment != "unpublished" and page_sponsor_time > now %}
+  {% if jekyll.environment != "unpublished" and p_sponsor_time > now %}
     {% break %}
   {% elsif jekyll.environment != "unpublished" and page_time <= now and p_time > now %}
     <a class="col-12 col-sm btn btn-lg btn-patreon next" title="{{ site.patreon.title }}"
