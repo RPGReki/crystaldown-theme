@@ -28,7 +28,7 @@
         },
         "schema:url": "{{ page.url | absolute_url }}",
         "schema:keywords": "{{ page.tags | join: ", " }}",
-        "schema:text": "{{ content | strip_html }}"
+        "schema:text": "{{ content | strip_html | escape_once }}"
     }
     ]
 }
