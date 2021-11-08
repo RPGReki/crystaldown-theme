@@ -1,4 +1,4 @@
-{% capture now %}{{ 'now' | date: '%s'}}{% endcapture %}
+{% capture now %}{{ 'now' | date: '%s' | plus: 10800 }}{% endcapture %}
 <ul style="list-style:none;padding:0">{% for page in pages %}
   {% if page.rating == "adult" %}{% continue %}{% endif %}
   {% capture page_time %}{{ page.date | date: '%s'}}{% endcapture %}
