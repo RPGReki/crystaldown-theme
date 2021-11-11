@@ -10,7 +10,7 @@
       },
       "dateCreated": {{ comment.date | date: '%Y-%m-%d' | jsonify }},
       "about": {{ page.url | absolute_url | jsonify }},
-      "message": {{ comment.message | markdownify | strip_html | jsonify }}
+      "message": {{ comment.message | escape | markdownify | strip_html | jsonify }}
     }
   </script>
   <p>
@@ -24,9 +24,9 @@
     src="{{"/proxy/gravatar/" | prepend: site.static_url | absolute_url }}{{ comment.gravatar }}/64/"
     srcset="{{"/proxy/gravatar/" | prepend: site.static_url | absolute_url }}{{ comment.gravatar }}/128/ 2x"
     height="64" width="64"
-    crossorigin = "anonymous">
+    crossorigin="anonymous">
     <div class="d-inline-block">
-    {{ comment.message | markdownify | replace: '<a ', '<a target="_blank" rel="nofollow ugc" '}}</div>
+    {{ comment.message | escape | markdownify | replace: '<a ', '<a target="_blank" rel="nofollow ugc" '}}</div>
     </div>
   <div class="clearfix"></div>
 </blockquote>
