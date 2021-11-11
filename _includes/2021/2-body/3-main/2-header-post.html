@@ -1,7 +1,7 @@
 <h1>
     {{ page.title }}
 </h1>
-<div id="talkify-metadata" aria-flowto="chapter-content">
+<aside id="talkify-metadata" aria-flowto="chapter-content">
     <small class="float-left mr-1">
         {% assign published = page.date | date: '%s' %}
         {% assign modified = page.last_modified_at | date: '%s' %}
@@ -19,4 +19,4 @@
     tagged with {% for t in page.tags %}<a href="{{ "/tags/"| prepend: page.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
 </small>
 {% endif %}
-</div>
+</aside>
