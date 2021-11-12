@@ -2,7 +2,7 @@
 # Layout Rewrite 2021: Post Layout
 layout: compress
 ---
-{% if page.previous %}
+{%- if page.previous %}
   {% assign previous_pages = page.previous %}
   {% for i in (1..100) %}
     {% if previous_pages.long != true or previous_pages.redirect_to %}
@@ -15,9 +15,9 @@ layout: compress
       {% break %}
     {% endif %}
   {% endfor %}
-{% endif %}
+{% endif -%}
 
-{% if page.next %}
+{%- if page.next %}
   {% assign next_pages = page.next %}
   {% for i in (1..100) %}
     {% if next_pages.long != true or next_pages.redirect_to %}
@@ -30,10 +30,10 @@ layout: compress
       {% break %}
     {% endif %}
   {% endfor %}
-{% endif %}
+{% endif -%}
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang }}">
 <head>
   {% include 2021/1-head/1-common.html %}
   {% include 2021/1-head/2-social-common.html %}
