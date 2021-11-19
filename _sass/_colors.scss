@@ -135,6 +135,10 @@
   .handwriting {
     border: 1px rgb(191, 191, 191) solid;
   }
+
+  h1, .h1, h2, .h2, h3 {
+    text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+  }
 }
 
 .policy-banner {
