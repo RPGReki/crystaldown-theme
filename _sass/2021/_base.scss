@@ -13,6 +13,10 @@
 @import "icons";
 @import "print";
 
+html {
+  scroll-behavior: smooth;
+}
+
 #body {
   font-size: 12pt;
   font-weight: 400;
