@@ -18,7 +18,6 @@ html {
 }
 
 #body {
-  font-size: 12pt;
   font-weight: 400;
   margin: 0;
   display: grid;
@@ -35,7 +34,6 @@ html {
   overflow-x: hidden;
 
   @media screen and (min-width: 992px) {
-    font-size: 14pt;
     grid-template: auto / 1fr 960px 1fr;
     gap: 0;
   }
@@ -68,7 +66,6 @@ html {
     }
   
     .h1 {
-      font-size: 2.5rem;
       margin-bottom: 0;
     }
   }
@@ -297,7 +294,6 @@ img {
   }
 }
 
-
 a {
   text-decoration: none;
 }
@@ -307,8 +303,7 @@ a {
 }
 
 .blog-post .button {
-  margin-left: 0;
-  margin-right: 0;
+  margin-inline: 0;
 }
 
 form {
@@ -382,10 +377,6 @@ form {
   }
 }
 
-h3, .h3 {
-  font-size: 1.5rem;
-}
-
 .collapse:not(.show) {
   @media screen and (min-width: 768px) {
     display: initial !important;
@@ -403,18 +394,15 @@ h3, .h3 {
   padding-bottom: .5rem;
     
   @media screen and (min-width: 768px) {
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-inline: -15px;
     padding: .5rem 15px;
     top: 4.25rem;
     min-width: calc(100vw - 18px);
   }
 
   @media screen and (min-width: 992px) {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
+    margin-inline: 0;
+    padding-inline: 0;
     min-width: unset;    
   }
 
@@ -426,8 +414,8 @@ h3, .h3 {
 @media screen and (min-width: 768px){
   .dropdown-menu {
     padding: .5rem 2em .5rem 0;
-    left:unset;
-    right:0;
+    left: unset;
+    right: 0;
   }
 }
 

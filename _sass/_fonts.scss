@@ -31,3 +31,23 @@ h1, .h1, h2, .h2, h3 {
 .hist, .long-s { 
   font-feature-settings: "hist", "hlig";
 }
+
+//320, 32, 1.2 -> 1140, 64, 2
+h1, .h1 {
+  font-size: unquote("clamp(2.00rem, 1.22rem + 3.90vw, 4.00rem)");
+}
+
+//320, 24, 1.2 -> 1140, 48, 1.667
+h2, .h2 {
+  font-size: unquote("clamp(1.50rem, 0.91rem + 2.93vw, 3.00rem)");
+}
+
+//320, 20, 1.2 -> 1140, 32, 1.333
+h3, .h3 {
+  font-size: unquote("clamp(1.25rem, 0.96rem + 1.46vw, 2.00rem)");
+}
+
+//320, 16, 1.2 -> 1140, 20, 1.2
+#body {
+  font-size: unquote("clamp(1.00rem, 0.90rem + 0.49vw, 1.25rem)");
+}
