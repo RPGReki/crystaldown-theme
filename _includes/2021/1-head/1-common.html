@@ -59,8 +59,15 @@ a:any-link{text-decoration:none}
 <link rel="stylesheet" type="text/css" href="{{ css | prepend: site.static_url | absolute_url }}?{{ css_page.content | sha256_64 | slice: 0, 5 }}">
 </noscript>
 {% unless page.layout == "2021/schema" %}
-<script defer src="{{ '/assets/2021/scripts/early.min.js' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}" crossorigin="anonymous"></script>
-<script defer src="{{ '/assets/2021/scripts/late.min.js' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}" crossorigin="anonymous" importance="low"></script>
+<script defer 
+  src="{{ '/assets/2021/scripts/early.min.js' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}"
+  crossorigin="anonymous"
+  {% if site.data.hashes.earlyminjs %}integrity="sha512-{{ site.data.hashes.earlyminjs }}"{% endif %}></script>
+<script defer 
+  src="{{ '/assets/2021/scripts/late.min.js' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}"
+  crossorigin="anonymous"
+  {% if site.data.hashes.lateminjs %}integrity="sha512-{{ site.data.hashes.lateminjs }}"{% endif %}
+  importance="low"></script>
 {% endunless %}
 <!-- Search Engine Verification -->
 {% for pair in site.webmaster_verifications %}
