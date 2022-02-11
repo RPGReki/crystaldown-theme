@@ -6,7 +6,7 @@
     <small class="float-left mr-1">
         {% assign published = page.date | date: '%s' %}
         {% assign modified = page.last_modified_at | date: '%s' %}
-        published on {{ page.date | date: "%Y-%m-%d" }}{% unless modified < published %}, last updated on {% last_modified_at %Y-%m-%d %}{% endunless %}
+        published on <time>{{ page.date | date: "%Y-%m-%d" }}</time>{% unless modified < published %}, last updated on <time>{% last_modified_at %Y-%m-%d %}</time>{% endunless %}
     </small>
     <small class="float-left float-lg-right text-left text-lg-right">
         {% if page.author %}
