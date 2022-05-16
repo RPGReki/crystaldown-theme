@@ -227,7 +227,7 @@ html {
   >.policy-banner {
     display: none;
     grid-area: controls;
-    z-index: 1000;
+    z-index: 999;
     position: sticky;
     top: 0;
 
