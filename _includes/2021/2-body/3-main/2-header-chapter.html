@@ -3,20 +3,21 @@
 </h1>
 
 <aside id="talkify-metadata" class="clearfix" aria-flowto="chapter-content">
-    <small class="float-left mr-1">
+    <small>
         {% assign published = page.date | date: '%s' %}
         {% assign modified = page.last_modified_at | date: '%s' %}
-        published on <time>{{ page.date | date: "%Y-%m-%d" }}</time>{% unless modified < published %}, last updated on <time>{% last_modified_at %Y-%m-%d %}</time>{% endunless %}
+        published on <time>{{ page.date | date: "%A, %Y-%m-%d" }}</time>{% unless modified < published %}, last updated on <time>{{ page.last_modified_at | date: "%A, %Y-%m-%d at %H:%M %Z" }}</time>,{% endunless %}
     </small>
-    <small class="float-left float-lg-right text-left text-lg-right">
+    <br>
+    <small>
         {% if page.author %}
         {% assign author = site.data.staff | where: "id", page.author | last %}
-        written by {% if author.url %}<a href="{{ author.url }}" target="_blank" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, {%if page.checker.size > 1 %}<br>{%endif%}checked with
+        written by {% if author.url %}<a href="{{ author.url }}" target="_blank" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, {%if page.checker.size > 1 %}{%endif%}checked with
         {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endif %}{% if page.editor %}, edited by 
         {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% if page.sponsors %}, sponsored by
-        {{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}
+        {{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}.
     </small>
-    <div aria-hidden="true" class="clearfix"></div>
+    <br>
     {% unless page.sponsors %}
     <small style="margin: 4px 0 2px">
         As always, a big thanks to all Patrons for their support.

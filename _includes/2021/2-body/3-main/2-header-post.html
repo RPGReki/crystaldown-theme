@@ -2,19 +2,20 @@
     {{ page.title }}
 </h1>
 <aside id="talkify-metadata" aria-flowto="chapter-content">
-    <small class="float-left mr-1">
+    <small>
         {% assign published = page.date | date: '%s' %}
         {% assign modified = page.last_modified_at | date: '%s' %}
-        published on {{ page.date | date: "%Y-%m-%d" }}{% unless modified < published %}, last updated on {% last_modified_at %Y-%m-%d %}{% endunless %}
+        published on <time>{{ page.date | date: "%A, %Y-%m-%d" }}</time>{% unless modified < published %}, last updated on <time>{{ page.last_modified_at | date: "%A, %Y-%m-%d at %H:%M %Z" }}</time>,{% endunless %}
     </small>
-<small class="float-left float-lg-right text-left text-lg-right">
+    <br>
+    <small>
 {% if page.author %}
 {% assign author = site.data.staff | where: "id", page.author | last %}
     written by {% if author.url %}<a href="{{ author.url }}" target="_blank" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, checked with
 {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endif %}
 </small>
-<div aria-hidden="true" class="clearfix"></div>
 {% if page.tags %}
+<br>
 <small>
     tagged with {% for t in page.tags %}<a href="{{ "/tags/"| prepend: page.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
 </small>
