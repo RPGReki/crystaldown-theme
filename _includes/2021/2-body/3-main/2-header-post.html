@@ -1,23 +1,17 @@
 <h1>
     {{ page.title }}
 </h1>
-<aside id="talkify-metadata" aria-flowto="chapter-content">
-    <small>
-        {% assign published = page.date | date: '%s' %}
-        {% assign modified = page.last_modified_at | date: '%s' %}
-        published on <time>{{ page.date | date: "%A, %Y-%m-%d" }}</time>{% unless modified < published %}, last updated on <time>{{ page.last_modified_at | date: "%A, %Y-%m-%d at %H:%M %Z" }}</time>,{% endunless %}
-    </small>
-    <br>
-    <small>
-{% if page.author %}
-{% assign author = site.data.staff | where: "id", page.author | last %}
-    written by {% if author.url %}<a href="{{ author.url }}" target="_blank" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, checked with
-{% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %} and {% endunless %}{% endfor %}{% endif %}
-</small>
-{% if page.tags %}
-<br>
-<small>
-    tagged with {% for t in page.tags %}<a href="{{ "/tags/"| prepend: page.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
+<small id="talkify-metadata" class="clearfix" aria-flowto="chapter-content">
+    {% assign published = page.date | date: '%s' %}
+    {% assign modified = page.last_modified_at | date: '%s' %}
+    published&nbsp;on&nbsp;<time pubdate datetime="{{ page.date | date: "%F" }}">{{ page.date | date: "%A,&nbsp;%F" }}</time>{% unless modified < published %}, last&nbsp;updated&nbsp;on&nbsp;<time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%A,&nbsp;%F&nbsp;at&nbsp;%H:%M&nbsp;%Z" }}</time>,{% endunless %}
+    {% if page.author %}
+    {% assign author = site.data.staff | where: "id", page.author | last %}
+    written&nbsp;by&nbsp;{% if author.url %}<a href="{{ author.url }}" target="_blank" rel="author" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, {%if page.checker.size > 1 %}{%endif%}checked&nbsp;with&nbsp;{{ -}}
+    {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %}{% if page.editor %}, edited&nbsp;by&nbsp;{{ -}}
+    {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% if page.sponsors %}, sponsored&nbsp;by&nbsp;{{ -}}
+    {{ page.sponsors | array_to_sentence_string }}{% endif %},{% endif %}
+    tagged&nbsp;with&nbsp;{% for t in page.tags %}<a href="{{ "/tags/"| prepend: page.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}.
 </small>
 {% endif %}
 </aside>
