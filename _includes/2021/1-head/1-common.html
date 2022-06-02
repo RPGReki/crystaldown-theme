@@ -3,7 +3,9 @@
 <meta name="theme-color" content="#9c2c2c">
 {% assign title = page.title %}
 {% if page.book %}
+{% unless page.title contains "Overview" %}
 {% assign title = title | append: " | " | append: page.book.series %}
+{% endunless %}
 {% endif %}
 {% unless page.title contains site.title %}
 {% assign title = title | append: " | " | append: site.title %}
