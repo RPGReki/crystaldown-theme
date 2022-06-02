@@ -8,10 +8,12 @@
         published&nbsp;on&nbsp;<time pubdate datetime="{{ page.date | date: "%F" }}">{{ page.date | date: "%A,&nbsp;%F" }}</time>{% unless modified < published %}, last&nbsp;updated&nbsp;on&nbsp;<time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%A,&nbsp;%F&nbsp;at&nbsp;%H:%M&nbsp;%Z" }}</time>,{% endunless %}
         {% if page.author %}
         {% assign author = site.data.staff | where: "id", page.author | last %}
-        written&nbsp;by&nbsp;{% if author.url %}<a href="{{ author.url }}" target="_blank" rel="author" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{% if page.checker %}, {%if page.checker.size > 1 %}{%endif%}checked&nbsp;with&nbsp;{{ -}}
-        {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %}{% if page.editor %}, edited&nbsp;by&nbsp;{{ -}}
-        {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% if page.sponsors %}, sponsored&nbsp;by&nbsp;{{ -}}
-        {{ page.sponsors | array_to_sentence_string }}{% endif %}.{% endif %}
+        written&nbsp;by&nbsp;{% if author.url %}<a href="{{ author.url }}" target="_blank" rel="author" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{{ -}}
+        {% if page.checker %}, {%if page.checker.size > 1 %}{%endif%}checked&nbsp;with&nbsp;{{ -}}
+        {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %}{{ -}}
+        {% if page.editor %}, edited&nbsp;by&nbsp;{{ -}}
+        {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{{ -}}
+        {% if page.sponsors %}, sponsored&nbsp;by&nbsp;{{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}.
     {% unless page.sponsors %}
         As&nbsp;always,&nbsp;a&nbsp;big&nbsp;thanks&nbsp;to&nbsp;all&nbsp;Patrons&nbsp;for&nbsp;their&nbsp;support.
     {% endunless %}
