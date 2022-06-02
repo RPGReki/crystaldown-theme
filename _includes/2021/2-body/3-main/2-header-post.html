@@ -13,5 +13,3 @@
     {{ page.sponsors | array_to_sentence_string }}{% endif %},{% endif %}
     tagged&nbsp;with&nbsp;{% for t in page.tags %}<a href="{{ "/tags/"| prepend: page.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}.
 </small>
-{% endif %}
-</aside>
