@@ -9,7 +9,8 @@
     {% assign author = site.data.staff | where: "id", page.author | last %}
     written&nbsp;by&nbsp;{% if author.url %}<a href="{{ author.url }}" target="_blank" rel="author" ref="noopener">{% endif %}{{ author.name }}{% if author.url %}</a>{% endif %}{% endif %}{{ -}}
     {% if page.checker %}, {%if page.checker.size > 1 %}{% endif %}checked&nbsp;with&nbsp;{{ -}}
-    {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %}{% if page.editor %}, edited&nbsp;by&nbsp;{{ -}}
-    {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %},
+    {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %}{{ -}}
+    {% if page.editor %}, edited&nbsp;by&nbsp;{{ -}}
+    {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %},
     tagged&nbsp;with&nbsp;{% for t in page.tags %}<a href="{{ "/tags/"| prepend: page.canonical_domain | absolute_url }}{{ t | slugify }}/">{{ t }}</a>{% unless forloop.last %},&nbsp;{% endunless %}{% endfor %}.
 </small>
