@@ -13,8 +13,8 @@
         {% for e in page.checker %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="sponsored">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{% endif %}{{ -}}
         {% if page.editor %}, edited&nbsp;by&nbsp;{{ -}}
         {% for e in page.editor %}{% assign editor = site.data.staff | where: "id", e | last %}{% if editor.url %}<a href="{{ editor.url }}" target="_blank" ref="noopener" rel="nofollow">{% endif %}{{ editor.name }}{%  if editor.url %}</a>{% endif %}{% unless forloop.last %}&nbsp;and&nbsp;{% endunless %}{% endfor %}{{ -}}
-        {% if page.sponsors %}, sponsored&nbsp;by&nbsp;{{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}.
-    {% unless page.sponsors %}
+        {% if page.sponsors %}, sponsored&nbsp;by&nbsp;{{ page.sponsors | array_to_sentence_string }}{% endif %}{% endif %}.&ensp;
+    {%- unless page.sponsors -%}
         As&nbsp;always,&nbsp;a&nbsp;big&nbsp;thanks&nbsp;to&nbsp;all&nbsp;Patrons&nbsp;for&nbsp;their&nbsp;support.
     {% endunless %}
 </small>
