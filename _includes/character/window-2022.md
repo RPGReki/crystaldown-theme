@@ -1,48 +1,50 @@
-{% if page.termbase == "/crystaldown" %}
-{% assign character = site.data.cd.characters[include.character] %}
-{% elsif page.termbase == "/my-life-as-a-cat" %}
-{% assign character = site.data.cat.characters[include.character] %}
-{% endif %}
+{% comment -%}
+This include is a template for character windows.
+
+Fields will be only shown if fields are non-empty.
+Expected delimiters: ;,:
+
+{%- endcomment %}
 
 {:class="interface {{ include.class }}" style="order: 20"}
 > Character Info
 > {:onclick="toggleAccordion(this)" .inactive}
 >
-> |---------+--------------------------------------|
-> |:--------|:-------------------------------------|{% unless include.no_name %}
-> | Name:   | {{ character.name }}                 |{% endunless %}
-> | Age:    | {{ character.age }}                  |
-> | Species: | {{ character.species | join: '/' }} |
+> |----------+--------------------------------------|---|
+> |:---------|:-------------------------------------|---|{% if include.name %}
+> | Name:    | {{ character.name }}                 |   |{% endif %}{% if include.age %}
+> | Age:     | {{ character.age }}                  |   |{% endif %}{% if include.species %}
+> | Species: | {{ include.species | join: '/' }}    |   |{% endif %}
 >
-> {% unless include.no_titles %}{:.interface}
+> {% if include.titles %}{:.interface}
 > > Titles & Blessings
 > > {:onclick="toggleAccordion(this)" .inactive}
 > >
-> > {% for title in character.titles %}
-> > - {{ title.name }} {% if title.requirements %}({{ title.requirements | array_to_sentence_string }}){% endif %}{% endfor %}
+> > {% for title_string in include.titles %}{% assign title_array = title_string | split: ';' %}{% assign title_requirements = title_array[1] | split: ',' %}
+> > - {{ title_array[0] }} {% if title_requirements %}({{ title_requirements | array_to_sentence_string }}){% endif %}{% endfor %}
 > >
-> {% endunless %}
+> {% endif %}
 >
-> {% unless include.no_traits %}{:.interface}
+> {% if include.traits %}{:.interface}
 > > Traits
 > > {:onclick="toggleAccordion(this)" .inactive}
 > >
-> > {% for trait in character.traits %}
-> > - {{ trait.name }}{%if trait.type %} ({{trait.type}}){% endif %}{% endfor %}
+> > {% for trait_string in include.traits %}{% assign trait_array = trait_string | split: ';' %}
+> > - {{ trait[0] }}{% if trait[1] %} ({{ trait[1] }}){% endif %}{% endfor %}
 > >
-> {% endunless %}
+> {% endif %}
 >
-> {% unless include.no_skills %}{:.interface}
+> {% if include.skills %}{:.interface}
 > > Skills
 > > {:onclick="toggleAccordion(this)" .inactive}
 > >
-> > {% for skill in character.skills %}
+> > {% for skill_string in include.skills %}{% assign skill_array = skill_string | split: ';' %}
 > > {:.interface}
-> > > {{ skill.name }} {% if skill.level %} <span class="float-right">Level {% include ruby number=skill.level %}</span>{% endif %}
-> > > {:onclick="toggleAccordion(this)" .inactive}
+> > > {{ skill_array[0] }} {% if skill_array[1] != "" %}{% assign level = skill_array[1] %} <span class="float-right">Level {% include ruby number=level %}</span>{% endif %}{% if skill_array[2] != "" %}
+> > > {:onclick="toggleAccordion(this)" .inactive}{% assign subskills = skill_array[2] | split: ',' %}{% endif %}
 > > >
-> > > {% for subskill in skill.subskills %}
-> > > - {{ subskill.name }} <span class="float-right">Level {% include ruby number=subskill.level %}</span>{% endfor %}
+> > > {% for subskill_string in subskills %}{% assign subskill_array = subskill_string | split: ':' %}
+> > > - {{ subskill_array[0] }} <span class="float-right">Level {% assign level = subskill_array[1] %}{% include ruby number=level %}</span>{% endfor %}
 > > >
 > > {% endfor %}
-> {% endunless %}
+> {% endif %}
