@@ -68,6 +68,11 @@ html {
   
     .h1 {
       margin-bottom: 0;
+
+      img {
+        margin-right: .1em;
+        margin-bottom: .2em;
+      }
     }
   }
 
@@ -234,7 +239,7 @@ html {
 
     @media screen and (min-width: 768px) {
       grid-column: 1;
-      grid-row: 3;
+      grid-row: 2;
     }
 
     @media screen and (min-width: 992px) {
