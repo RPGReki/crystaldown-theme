@@ -1,0 +1,7 @@
+{%- if include.data[0] -%}
+  {% for hay in include.data -%}
+    {% include manuskript/glossary-overview-item.html hay=hay category=include.category level=include.level %}
+  {%- endfor -%}
+{%- else -%}
+  {% include manuskript/glossary-overview-item.html hay=include.data category=include.category level=include.level %}
+{%- endif -%}

@@ -1,0 +1,7 @@
+{%- if include.data[0] -%}
+{%- for hay in include.data -%}
+{%- include manuskript/glossary-item.html hay=hay top=include.top id=include.id -%}
+{%- endfor %}
+{%- else -%}
+    {%- include manuskript/glossary-item.html hay=include.data top=include.top id=include.id -%}
+{% endif %}

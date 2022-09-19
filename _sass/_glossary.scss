@@ -1,13 +1,6 @@
 .glossary {
+    flex-direction: row!important;
     > div {
-        @media (min-width: 576px) {
-            columns: 2;
-        }
-
-        @media (min-width: 992px) {
-            columns: 3;
-        }
-
         div {
             break-inside: avoid;
             break-before: auto;

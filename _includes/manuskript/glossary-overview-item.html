@@ -1,0 +1,24 @@
+{%- assign id = include.hay.name | replace: "_", " " | slugify -%}
+{%- unless include.category -%}
+  <div class="mb-3 col-md-4">
+    <h2 id="{{ id }}" style="order: -1">
+      <a href="{{ page.termbase | append: '/glossary/' | append: id | absolute_url }}/">{{ include.hay.name }}</a>
+    </h2>
+    {%- include manuskript/glossary-overview.html data=include.hay.outline category=id level=3 -%}
+  </div>
+{%- else -%}
+  {%- if include.id -%}
+    {%- assign id = id | prepend: '-' | prepend: include.id -%}
+  {%- endif -%}
+  {%- if include.hay.outline -%}
+    <div class="mb-2">
+      <h{{ include.level }} id="{{ id }}" style="order: -1">
+        <a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ include.hay.name }}</a>
+      </h{{ include.level }}>
+      {%- assign level = include.level | plus: 1 -%}
+      {%- include manuskript/glossary-overview.html data=include.hay.outline category=include.category id=id level=level -%}
+    </div>
+  {% else %}
+    <ul><li id="{{ id }}"><a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ include.hay.name }}</a></li></ul>
+  {% endif %}
+{% endunless %}

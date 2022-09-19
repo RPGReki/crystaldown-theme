@@ -3,7 +3,7 @@
 {% for p in previous_pages %}
   {% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}
   {% if jekyll.environment != "unpublished" and p_time > now %}
-    <a class="col-12 col-sm btn btn-lg btn-primary previous" title="{{ p.title }}" href="{{ p.shortlink | replace: '/cd/', 'https://cd-ht.ml/' | replace: '/a/', 'https://amau.ga/'}}?p={{ site.token.max | divided_by: p.chapter | modulo: site.token.mod | plus: site.token.plus }}">{{ p.title }}</a>
+    <a class="col-12 col-sm btn btn-lg btn-primary previous" title="{{ p.title }}" href="{{ p.shortlink | replace: '/cd/', 'https://cd-ht.ml/' | replace: '/a/', 'https://amau.ga/'}}?p={% if p.chapter>0 %}{{ site.token.max | divided_by: p.chapter | modulo: site.token.mod | plus: site.token.plus }}{% else %}000000{% endif%}">{{ p.title }}</a>
   {% else %}  
     <a class="col-12 col-sm btn btn-lg btn-primary previous" title=" {{ p.title }}" href="{{ p.url | absolute_url }}">{{ p.title }}</a>
   {% endif %}
