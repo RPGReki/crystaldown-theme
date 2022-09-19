@@ -2,7 +2,7 @@
 {%- unless include.id == "" -%}
   {%- assign id = id | prepend: '-' | prepend: include.id -%}
 {%- endunless -%}
-<blockquote class="interface{% if include.top %} top-toggle{% endif %}">
+<blockquote class="interface{% if include.top %} top-toggle col-12{% endif %}">
   <p {% if hay.outline or hay.character %}class="inactive" onclick="toggleAccordion(this)"{% else %}class="active"{% endif %} id="{{ id }}" style="order: -1">
     {{- include.hay.name -}}
   </p>
