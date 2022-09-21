@@ -78,8 +78,7 @@ html {
 
   > .controls {
     grid-area: controls;
-    display: flex;
-    position: sticky;
+    display: none;
     top: 0;
     z-index: 500;
 
@@ -234,7 +233,6 @@ html {
     display: none;
     grid-area: controls;
     z-index: 999;
-    position: sticky;
     top: 0;
 
     @media screen and (min-width: 768px) {
