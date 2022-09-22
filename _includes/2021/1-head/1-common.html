@@ -28,7 +28,7 @@
 {% for font in site.preload.fonts %}
 <link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}" type="font/woff2" crossorigin>
 {% endfor %}
-<link rel="stylesheet" type="text/css" href="{{ '/early.css' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}">
+<link rel="stylesheet" type="text/css" href="{{ '/assets/2021/css/early.css' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}">
 <!-- CSS & JS -->
 {% capture css %}/assets/2021/css/default{% if page.additional_css %}+{{ page.additional_css | join: '+'}}{% endif %}.css{% endcapture %}
 {% assign css_page = site.pages | where: 'url', css | last %}
