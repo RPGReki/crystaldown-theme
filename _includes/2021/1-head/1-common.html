@@ -28,33 +28,8 @@
 {% for font in site.preload.fonts %}
 <link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}" type="font/woff2" crossorigin>
 {% endfor %}
+<link rel="stylesheet" type="text/css" href="{{ '/early.css' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}">
 <!-- CSS & JS -->
-<style>
-*{-webkit-font-smoothing:subpixel-antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
-.dark-theme{color:#fff;background-color:#212121}
-.light-theme{color:#4d4d4d;background-color:#fff}
-#body{margin:0;display:grid;grid-template:auto;gap:0 1vmin;grid-template-areas:"title" "controls" "breadcrumbs" "content" "comments" "footer";line-height:1.5,font-family:"Source Sans Pro",sans-serif;font-size:clamp(1rem,.9rem+.49vw,1.25rem);}
-#body>header{background-color:#9c2c2c;margin:0}
-#body>header a{color:#fff}
-h1,.h1{font-weight:500;line-height:1.2;font-family:Cardo,serif;font-size:clamp(2rem,1.22rem+3.9vw,4rem);font-feature-settings:"dlig"}
-h2{font-weight:500;line-height:1.2;font-family:Cardo,serif;font-size:clamp(1.5rem,.91rem+2.93vw,3rem);font-feature-settings:"dlig"}
-#body>.policy-banner{grid-area:controls;z-index:100;background-color:#343a40;margin:.5rem}
-.btn-green{background-color:#2c9c64;border-color:#2c9c64;color:#fff}
-.btn-block{display:block}
-.d-none{display:none}
-.breadcrumb{grid-area:breadcrumbs;display:flex;flex-wrap:wrap;padding:.75rem 1rem;margin-bottom:1rem;list-style:none;background-color:#e9ecef;border-radius:.25rem;font-size:80%}
-main{grid-area:content}
-#body>footer{grid-area:footer}
-.collapse:not(.show){display:none;}
-.navbar-toggler{padding:.25rem .75rem;font-size:1.25rem;border-radius:.25rem;background:#343a40;color:#fff}
-.d-flex{display:flex}
-.d-block{display:block}
-.justify-content-between{justify-content:space-between}
-a:any-link{text-decoration:none}
-.controls{display:none}
-.btn-lg{padding:.5rem 1rem;font-size:1.25rem;line-height:1.5;border-radius:.3rem}
-.dark-theme .breadcrumb .breadcrumb-item,.dark-theme .breadcrumb .breadcrumb-item.active{color:#212121}
-</style>
 {% capture css %}/assets/2021/css/default{% if page.additional_css %}+{{ page.additional_css | join: '+'}}{% endif %}.css{% endcapture %}
 {% assign css_page = site.pages | where: 'url', css | last %}
 <!-- 'sha256-1jAmyYXcRq6zFldLe/GCgIDJBiOONdXjTLgEFMDnDSM=' -->
