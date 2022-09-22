@@ -234,15 +234,22 @@ html {
     grid-area: controls;
     z-index: 999;
     top: 0;
+    min-height: 220px;
 
     @media screen and (min-width: 768px) {
       grid-column: 1;
       grid-row: 2;
+      min-height: 184px;
     }
 
     @media screen and (min-width: 992px) {
       grid-column: 1 / span 3;
       grid-row: 3;
+      min-height: 196px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      min-height: 171px;
     }
 
     .policy-button,
