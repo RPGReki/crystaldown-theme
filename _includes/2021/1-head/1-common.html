@@ -28,12 +28,12 @@
 {% for font in site.preload.fonts %}
 <link rel="preload" as="font" href="{{ font | prepend: site.static_url | absolute_url }}" type="font/woff2" crossorigin>
 {% endfor %}
-<link rel="stylesheet" type="text/css" href="{{ '/assets/2021/css/early.css' | prepend: site.static_url | absolute_url }}?{{ site.time | date: '%Y%m%d' }}">
+<style>{% include 2021/1-head/1-early.css %}</style>
 <!-- CSS & JS -->
 {% capture css %}/assets/2021/css/default{% if page.additional_css %}+{{ page.additional_css | join: '+'}}{% endif %}.css{% endcapture %}
 {% assign css_page = site.pages | where: 'url', css | last %}
-<!-- 'sha256-1jAmyYXcRq6zFldLe/GCgIDJBiOONdXjTLgEFMDnDSM=' -->
 <link rel="manifest" href="{{ '/manifest.json' | absolute_url }}">
+<!-- 'sha256-1jAmyYXcRq6zFldLe/GCgIDJBiOONdXjTLgEFMDnDSM=' -->
 <link rel="preload" as="style" type="text/css" href="{{ css | prepend: site.static_url | absolute_url }}?{{ css_page.content | sha256_64 | slice: 0, 5 }}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
 <link rel="stylesheet" type="text/css" href="{{ css | prepend: site.static_url | absolute_url }}?{{ css_page.content | sha256_64 | slice: 0, 5 }}">
