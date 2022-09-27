@@ -17,17 +17,10 @@
   </a>
   {% endif %}
   {% endunless %}
-  {% if page.deviantart %}
-  <a href="{{ page.deviantart }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on DeviantArt{% if page.deviantart_status %} ({{ page.deviantart_status }}){% endif %}">
-    <img loading="lazy" src="{{ '/proxy/shields/-/deviantart/shield.svg' | prepend: site.static_url | absolute_url }}"
-         alt="DeviantArt" width="64" height="64"{% if page.deviantart_status %} style="filter:grayscale(1)"{% endif %}>
-  </a>
-  {% endif %}
-  {% if page.scribblehub %}
-  <a href="{{ page.scribblehub }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
-    <img loading="lazy" src="{{ '/proxy/shields/-/scribblehub/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
+  {% if page.pixiv %}
+  <a href="{{ page.pixiv }}" rel="alternate"
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Pixiv">
+    <img loading="lazy" src="{{ '/proxy/shields/-/pixiv/shield.svg' | prepend: site.static_url | absolute_url }}" alt="pixiv" width="64" height="64">
   </a>
   {% endif %}
   {% if page.royalroad %}
@@ -37,16 +30,16 @@
       alt="Royal Road" width="64" height="64"{% if page.royalroad_status %} style="filter:grayscale(1)"{% endif%}>
   </a>
   {% endif %}
+  {% if page.scribblehub %}
+  <a href="{{ page.scribblehub }}" rel="alternate"
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
+    <img loading="lazy" src="{{ '/proxy/shields/-/scribblehub/shield.svg' | prepend: site.static_url | absolute_url }}" alt="Scribble Hub" width="64" height="64">
+  </a>
+  {% endif %}
   {% if page.tapas %}
   <a href="{{ page.tapas }}" rel="alternate"
     target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on tapas">
     <img loading="lazy" src="{{ '/proxy/shields/-/tapas/shield.svg' | prepend: site.static_url | absolute_url }}" alt="tapas" width="64" height="64">
-  </a>
-{% endif %}
-{% if page.wattpad %}
-  <a href="{{ page.wattpad }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on wattpad">
-    <img loading="lazy" src="{{ '/proxy/shields/-/wattpad/shield.svg' | prepend: site.static_url | absolute_url }}" alt="wattpad" width="64" height="64">
   </a>
 {% endif %}
 </p>

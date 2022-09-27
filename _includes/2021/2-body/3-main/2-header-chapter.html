@@ -2,6 +2,30 @@
     {{ page.title }}
 </h1>
 
+<div>
+    {% capture share_title %}{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}{% endcapture %}
+    {% if page.pixiv %}
+    <a title="{{ share_title }} on Pixiv" href="{{ page.pixiv }}" target="_blank" rel="noopener alternate">
+        <img loading="lazy" src="{{ "/proxy/shields/-/pixiv/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Pixiv" width="64" height="64">
+    </a>
+    {% endif %}
+    {% if page.royalroad %}
+    <a title="{{ share_title }} on Royal Road" href="{{ page.royalroad }}" target="_blank" rel="noopener alternate">
+        <img loading="lazy" src="{{ "/proxy/shields/-/royalroad/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Royal Road" width="64" height="64">
+    </a>
+    {% endif %}
+    {% if page.scribblehub %}
+    <a title="{{ share_title }} on ScribbleHub" href="{{ page.scribblehub }}" target="_blank" rel="noopener alternate">
+        <img loading="lazy" src="{{ "/proxy/shields/-/scribblehub/shield.svg" | prepend: site.static_url | absolute_url }}" alt="ScribbleHub" width="64" height="64">
+    </a>
+    {% endif %}
+    {% if page.tapas %}
+    <a title="{{ share_title }} on ScribbleHub" href="{{ page.tapas }}" target="_blank" rel="noopener alternate">
+        <img loading="lazy" src="{{ "/proxy/shields/-/tapas/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Tapas" width="64" height="64">
+    </a>
+    {% endif %}
+</div>
+
 <small id="talkify-metadata" class="clearfix" aria-flowto="chapter-content">
         {% assign published = page.date | date: '%s' %}
         {% assign modified = page.last_modified_at | date: '%s' %}
