@@ -19,6 +19,11 @@
       target="_blank" rel="noopener nofollow">
       <img loading="lazy" src="{{ "/proxy/shields/-/facebook/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Share Post on Facebook" width="64" height="64">
     </a>
+    <a title="Share Post on Mastodon"
+    href="/tools/toot/?text={{ share_text }}%0A%0Aby%20{{ site.mastodon.username }}%0A%0A{{ s }}%0A%0A%23{{ twitter_tags | join: '%20%23'}}"
+    target="_blank" rel="noopener nofollow">
+    <img loading="lazy" src="{{ "/proxy/shields/-/mastodon/shield.svg"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Mastodon" width="64" height="64">
+    </a>
     <a title="Share Post on Twitter"
       href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}%0A%0A&text={{ share_text | url_encode }}%0A%0A&via={{ site.twitter.username }}&hashtags={{ twitter_tags | join: ','}}"
       target="_blank" rel="noopener nofollow">

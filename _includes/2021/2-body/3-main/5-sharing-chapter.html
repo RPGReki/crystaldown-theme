@@ -15,7 +15,12 @@
     <a title="Share Chapter on Facebook"
         href="https://www.facebook.com/sharer.php?src=bm&u={{ s }}"
         target="_blank" rel="noopener nofollow">
-        <img loading="lazy" src="{{ "/proxy/shields/-/discord/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Share Chapter on Facebook" width="64" height="64">
+        <img loading="lazy" src="{{ "/proxy/shields/-/facebook/shield.svg" | prepend: site.static_url | absolute_url }}" alt="Share Chapter on Facebook" width="64" height="64">
+    </a>
+    <a title="Share Chapter on Mastodon"
+    href="/tools/toot/?text={{ share_text }}%0A%0Aby%20{{ site.mastodon.username }}%0A%0A{{ s }}%0A%0A%23Fantasy%20%23WebFiction%20%23WebNovel%20%23WebSerial"
+    target="_blank" rel="noopener nofollow">
+    <img loading="lazy" src="{{ "/proxy/shields/-/mastodon/shield.svg"| prepend: site.static_url | absolute_url }}" alt="Share Chapter on Mastodon" width="64" height="64">
     </a>
     <a title="Share Chapter on Twitter"
         href="https://twitter.com/intent/tweet?url={{ s }}%0A%0A&text={{ share_text }}%0A%0A&via={{ site.twitter.username }}&hashtags=Fantasy,WebFiction,WebNovel,WebSerial"
