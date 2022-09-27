@@ -2,7 +2,7 @@
     {{ page.title }}
 </h1>
 
-<div>
+<div class="icons shields justify-content-start">
     {% capture share_title %}{{ page.book.series }} {{ page.book.number }}-{{ page.chapter }}: {{ page.title }}{% endcapture %}
     {% if page.pixiv %}
     <a title="{{ share_title }} on Pixiv" href="{{ page.pixiv }}" target="_blank" rel="noopener alternate">
