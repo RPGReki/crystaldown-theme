@@ -1,8 +1,8 @@
 
-{% if page.previous_chapter %}
-  {% assign previous_chapter_number = page.previous_chapter%}
+{% if page.prev_chapter %}
+  {% assign prev_chapter_number = page.prev_chapter%}
 {% else %}
-  {% assign previous_chapter_number = page.chapter | plus: -1 %}
+  {% assign prev_chapter_number = page.chapter | plus: -1 %}
 {% endif %}
 
 {% if page.next_chapter %}
@@ -12,7 +12,7 @@
 {% endif %}
 
 {% assign pages = site.pages | where: "type", "chapter" | where: "book.series", page.book.series %}
-{% assign previous_pages = pages | where: "chapter", previous_chapter_number %}
+{% assign previous_pages = pages | where: "chapter", prev_chapter_number %}
 {% assign next_pages = pages | where: "chapter", next_chapter_number %}
 
 {% for page in previous_pages %}
