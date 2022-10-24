@@ -1,24 +1,43 @@
-{%- assign id = include.hay.name | replace: "_", " " | slugify -%}
+{%- assign id = include.hay.name | replace: "'", "" | slugify -%}
 {%- unless include.category -%}
   <div class="mb-3 col-md-4">
     <h2 id="{{ id }}" style="order: -1">
       <a href="{{ page.termbase | append: '/glossary/' | append: id | absolute_url }}/">{{ include.hay.name }}</a>
     </h2>
-    {%- include manuskript/glossary-overview.html data=include.hay.outline category=id level=3 -%}
+    {%- include manuskript/glossary-overview.html data=include.hay.outline category=id level=3 id="" -%}
   </div>
 {%- else -%}
-  {%- if include.id -%}
-    {%- assign id = id | prepend: '-' | prepend: include.id -%}
-  {%- endif -%}
-  {%- if include.hay.outline -%}
+  {%- if include.level < 2 -%}
     <div class="mb-2">
-      <h{{ include.level }} id="{{ id }}" style="order: -1">
+      <h{{ include.level }} id="{{ id }}">
         <a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ include.hay.name }}</a>
       </h{{ include.level }}>
-      {%- assign level = include.level | plus: 1 -%}
-      {%- include manuskript/glossary-overview.html data=include.hay.outline category=include.category id=id level=level -%}
+      {% if include.hay.outline %}
+        {%- assign level = include.level | plus: 1 -%}
+        {%- include manuskript/glossary-overview.html data=include.hay.outline category=include.category id=id level=level -%}
+      {% endif %}
     </div>
+  {% elsif include.level < 3 %}
+  <div class="mb-2">
+    <h{{ include.level }} id="{{ id }}">
+      <a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ include.hay.name }}</a>
+    </h{{ include.level }}>
+    {% if include.hay.outline %}
+      {%- assign level = include.level | plus: 1 -%}
+    <ul>
+      {%- include manuskript/glossary-overview.html data=include.hay.outline category=include.category id=id level=level -%}
+    </ul>
+    {% endif %}
+  </div>
   {% else %}
-    <ul><li id="{{ id }}"><a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ include.hay.name }}</a></li></ul>
+      <li id="{{ id }}">
+        <a href="{{ page.termbase | append: '/glossary/' | append: include.category | absolute_url }}/#{{ id }}">{{ include.hay.name }}</a>
+        {% if include.hay.outline %}
+          {%- assign level = include.level | plus: 1 -%}
+        <ul>
+        {%- include manuskript/glossary-overview.html data=include.hay.outline category=include.category level=level id=id -%}
+        </ul>
+        {% endif %}
+      </li>
   {% endif %}
 {% endunless %}

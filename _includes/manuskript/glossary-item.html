@@ -1,22 +1,22 @@
-{%- assign id = include.hay.name | replace: "_", " " | slugify -%}
+{%- assign id = include.hay.name | replace: "'", "" | slugify -%}
 {%- unless include.id == "" -%}
   {%- assign id = id | prepend: '-' | prepend: include.id -%}
 {%- endunless -%}
 <blockquote class="interface{% if include.top %} top-toggle col-12{% endif %}">
-  <p {% if hay.outline or hay.character %}class="inactive" onclick="toggleAccordion(this)"{% else %}class="active"{% endif %} id="{{ id }}" style="order: -1">
+  <p {% if hay.outline or hay.character %}class="inactive" onclick="toggleAccordion(this)"{% else %}class="active"{% endif %} id="{{ id }}">
     {{- include.hay.name -}}
   </p>
   {%- if include.hay.description -%}
-    <div style="order: 1" class="hyphenate">
+    <div class="hyphenate">
       {%- capture description -%}{{ include.hay.description | markdownify }}{%- endcapture -%}
       {%- include linkify content=description -%}
     </div>
   {%- endif -%}
   {% if include.hay.outline %}
-    {%- assign id = include.hay.name | replace: "_", " " | slugify -%}
+    {%- assign id = include.hay.name | replace: "'", "" | slugify -%}
     {%- unless include.id == "" -%}
         {%- assign id = id | prepend: '-' | prepend: include.id -%}
-    {%-  endunless -%}
-    {%- include manuskript/glossary.html data=include.hay.outline top=false id=id -%}
+    {%- endunless -%}
+    {%- include manuskript/glossary.html data=include.hay.outline top=false id="" -%}
  {% endif %}
 </blockquote>
