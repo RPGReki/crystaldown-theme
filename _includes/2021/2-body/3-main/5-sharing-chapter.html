@@ -18,7 +18,7 @@
         <img loading="lazy" src="{{ "/proxy/shields/-/facebook/shield.svg" | absolute_url }}" alt="Share Chapter on Facebook" width="64" height="64">
     </a>
     <a title="Share Chapter on Mastodon"
-    href="/tools/toot/?text={{ share_text }}%0A%0Aby%20{{ site.mastodon.username }}%0A%0A{{ s }}%0A%0A%23Fantasy%20%23WebFiction%20%23WebNovel%20%23WebSerial"
+    href="/tools/toot/?text={{ share_text | url_encode }}%0A%0A{{ s }}%0A%0Aby%20%40{{ site.mastodon.username }}%0A%0A{{ s }}%0A%0A%23Fantasy%20%23WebFiction%20%23WebNovel%20%23WebSerial"
     target="_blank" rel="noopener nofollow">
     <img loading="lazy" src="{{ "/proxy/shields/-/mastodon/shield.svg" | absolute_url }}" alt="Share Chapter on Mastodon" width="64" height="64">
     </a>
