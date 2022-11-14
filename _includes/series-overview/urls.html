@@ -19,27 +19,33 @@
   {% endunless %}
   {% if page.pixiv %}
   <a href="{{ page.pixiv }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Pixiv">
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }}{% if page.chapter %} Chapter {{ page.chapter }}: {{ page.title}}{% endif %} on Pixiv">
     <img loading="lazy" src="{{ '/proxy/shields/-/pixiv/shield.svg' | absolute_url }}" alt="pixiv" width="64" height="64">
   </a>
   {% endif %}
   {% if page.royalroad %}
   <a href="{{ page.royalroad }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Royal Road{% if page.royalroad_status %} ({{ page.royalroad_status }}){% endif %}">
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }}{% if page.chapter %} Chapter {{ page.chapter }}: {{ page.title}}{% endif %} on Royal Road">
     <img loading="lazy" src="{{ '/proxy/shields/-/royalroad/shield.svg' | absolute_url }}"
-      alt="Royal Road" width="64" height="64"{% if page.royalroad_status %} style="filter:grayscale(1)"{% endif%}>
+      alt="Royal Road" width="64" height="64">
   </a>
   {% endif %}
   {% if page.scribblehub %}
   <a href="{{ page.scribblehub }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on Scribble Hub">
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }}{% if page.chapter %} Chapter {{ page.chapter }}: {{ page.title}}{% endif %} on Scribble Hub">
     <img loading="lazy" src="{{ '/proxy/shields/-/scribblehub/shield.svg' | absolute_url }}" alt="Scribble Hub" width="64" height="64">
   </a>
   {% endif %}
   {% if page.tapas %}
   <a href="{{ page.tapas }}" rel="alternate"
-    target="_blank" rel="noopener nofollow" title="{{ page.book.series }} on tapas">
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }}{% if page.chapter %} Chapter {{ page.chapter }}: {{ page.title}}{% endif %} on tapas">
     <img loading="lazy" src="{{ '/proxy/shields/-/tapas/shield.svg' | absolute_url }}" alt="tapas" width="64" height="64">
   </a>
-{% endif %}
+  {% endif %}
+  {% if page.wattpad %}
+  <a href="{{ page.wattpad }}" rel="alternate"
+    target="_blank" rel="noopener nofollow" title="{{ page.book.series }}{% if page.chapter %} Chapter {{ page.chapter }}: {{ page.title}}{% endif %} on wattpad">
+    <img loading="lazy" src="{{ '/proxy/shields/-/wattpad/shield.svg' | absolute_url }}" alt="tapas" width="64" height="64">
+  </a>
+  {% endif %}
 </p>
