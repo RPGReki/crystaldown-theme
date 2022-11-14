@@ -24,6 +24,11 @@
         <img loading="lazy" src="{{ "/proxy/shields/-/tapas/shield.svg" | absolute_url }}" alt="Tapas" width="64" height="64">
     </a>
     {% endif %}
+    {% if page.wattpad %}
+    <a title="{{ share_title }} on wattpad" href="{{ page.wattpad }}" target="_blank" rel="noopener alternate">
+        <img loading="lazy" src="{{ "/proxy/shields/-/wattpad/shield.svg" | absolute_url }}" alt="wattpad" width="64" height="64">
+    </a>
+    {% endif %}
 </div>
 
 <small id="talkify-metadata" class="clearfix" aria-flowto="chapter-content">
