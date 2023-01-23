@@ -2,6 +2,6 @@
 <ul style="list-style:none;padding:0">{% for page in pages %}
   {% if page.rating == "adult" %}{% continue %}{% endif %}
   {% capture page_time %}{{ page.date | date: '%s'}}{% endcapture %}
-  {% if jekyll.environment != "unpublished" and page_time > now %}{% break %}{% endif %}
+  {% if page_time > now %}{% break %}{% endif %}
   <li><span class="count w-3">{% if page.current_chapters %}{{ page.current_chapters }}{% else %}{{ page.chapter }}{% endif %}.</span> <a href="{{ page.url | absolute_url }}">{{ page.title }}</a></li>{% endfor %}
 </ul>
