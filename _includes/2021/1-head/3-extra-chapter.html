@@ -15,13 +15,19 @@
 {% assign previous_pages = pages | where: "chapter", prev_chapter_number %}
 {% assign next_pages = pages | where: "chapter", next_chapter_number %}
 
-{% for page in previous_pages %}
-{% if jekyll.environment != "unpublished" and page.published == "sponsors" %}{% break %}{% endif %}
+{% for p in previous_pages %}
+{% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}
+{% capture p_sponsor_time %}{{ p.date | date: '%s' | minus: 648000 }}{% endcapture %}
+{% if jekyll.environment != "unpublished" and p_sponsor_time > now %}
+  {% break %}{% break %}{% endif %}
 <link rel="prerender" href="{{ page.url }}">
 {% endfor %}
 
-{% for page in next_pages %}
-{% if jekyll.environment != "unpublished" and page.published == "sponsors" %}{% break %}{% endif %}
+{% for p in next_pages %}
+{% capture p_time %}{{ p.date | date: '%s' }}{% endcapture %}
+{% capture p_sponsor_time %}{{ p.date | date: '%s' | minus: 648000 }}{% endcapture %}
+{% if jekyll.environment != "unpublished" and p_sponsor_time > now %}
+  {% break %}{% break %}{% endif %}
 <link rel="prerender" href="{{ page.url }}">
 {% endfor %}
 
