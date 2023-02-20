@@ -10,7 +10,7 @@
 {% unless page.title contains site.title %}
 {% assign title = title | append: " | " | append: site.title %}
 {% endunless %}
-{% assign title_characters = 59 | minus: page.seo_title_fix %}
+{% assign title_characters = 58 | minus: page.seo_title_fix %}
 <title>{{ title | truncate: title_characters, "…" }}</title>
 <meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
