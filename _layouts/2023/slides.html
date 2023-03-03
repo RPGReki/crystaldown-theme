@@ -1,0 +1,53 @@
+---
+# 2023 Slides Template
+layout: compress
+---
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{ page.title }} | {{ site.title }}</title>
+
+		<link rel="stylesheet" href="{{ "/assets/vendor/reveal/css/dist/reveal.css" | absolute_url }}">
+		<link rel="stylesheet" href="{{ "/assets/vendor/reveal/css/dist/theme/solarized.css" | absolute_url }}">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/vendor/reveal/css/print/pdf.css' : '/assets/vendor/reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        <style>
+        * {
+            font: "Source Sans 3", "Source Sans Pro", sans-serif;
+        }
+        </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<section class="slides" lang="en">
+                {{ content }}
+            </section>
+            </div>
+		</div>
+
+		<script src="{{ "/assets/vendor/reveal/lib/head.min.js" | absolute_url }}"></script>
+		<script src="{{ "/assets/vendor/reveal/dist/reveal.js" | absolute_url }}"></script>
+
+		<script>
+			Reveal.initialize({
+				width: 1280,
+                height: 720,
+                history: true,
+				dependencies: [
+					{ src: '/assets/vendor/reveal/plugin/notes.js', async: true }
+				],
+				transition: 'zoom'
+			});
+		</script>
+	</body>
+</html>
